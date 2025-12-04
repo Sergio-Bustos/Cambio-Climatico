@@ -131,6 +131,11 @@ h2.text-primary::after {
   border-radius: 2px;
 }
 
+
+.titulo-verde {
+    color: #2c5f2d !important;
+}
+
 /* Párrafos */
 .lead {
   color: var(--text-light);
