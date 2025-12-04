@@ -1,23 +1,23 @@
-🔭 Proyecto Cometa Interestelar 3I/ATLAS
+🌱🌐 Proyecto - Cambio Climatico ...
 
-✨ INTRODUCCIÓN Y OBJETIVO
-Este repositorio contiene la documentación y la interfaz web del proyecto de análisis sobre el cometa 3I/ATLAS el tercer objeto confirmado de origen interestelar 🌠
+✨ INTRODUCCIÓN;
 
-El proyecto es un recurso científico y educativo que detalla las características únicas del cometa su composición atípica y la mecánica de su trayectoria orbital hiperbólica fuera de nuestro Sistema Solar
+Este repositorio contiene la documentación y la interfaz web del analisis sobre el actual cambio climatico que esta viviendo el planeta tierra 🌐..
 
-📁 ESTRUCTURA DE ARCHIVOS
-La información está organizada en archivos HTML modulares para una navegación clara
+El proyecto es un recurso científico y educativo que detalla las características,significado,consecuencias,origenes y demas sobre este fenomeno... Hablando desde cosas tan sencillas como su origen o significado hasta llegar a estudios cientificos,etc.
 
-cometa.html; Es el Portal Principal y la navegación central 🌐
+🔍 Objetivos principales;
 
-quees.html; Describe las Características el origen y los parámetros cinéticos (velocidad tamaño) ⭐
+- Conocer acerca de este fenomeno
+- Como mejorarlo con pequeños pasos
+- Conocer acerca de sus origenes
+- Conocer acerca de sus causas y consecuencias
+- Conocer estudios cientificos de este
 
-responsive.html; Contiene el Análisis de la Trayectoria Orbital y la confirmación de cero riesgo para la Tierra 🛰️
+El objetivo general es entender sus impactos negativos en el medio ambiente y en la vida humana para tomar medidas urgentes de mitigación y adaptación..
 
-acordeon.html; Incluye el Desglose Químico de volátiles (CO₂ H₂O) y la Galería de Imágenes 🔬
+⚙️ DISEÑO Y TECNOLOGÍA;
 
-⚙️ DISEÑO Y TECNOLOGÍA
+- El proyecto usa HTML5 y Bootstrap para el diseño responsive y los componentes interactivos 
 
-El proyecto usa HTML5 y Bootstrap para el diseño responsive y los componentes interactivos 
-
-El estilo es un tema oscuro y espacial con fondos negros Se usan colores Cian Aqua Amarillo y Verde para asegurar un alto contraste y una apariencia profesional
+- El estilo es un tema claro y con degradaciones en algunas partes para una UX/UI simple,pero hermosa para los usuarios que quieran saber acerca del cambio climatico
