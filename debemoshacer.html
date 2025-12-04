@@ -1,0 +1,206 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Elemento raíz, idioma español -->
+<head> <!-- Encabezado del documento -->
+    <!-- Configuración de codificación de caracteres UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configuración para diseño responsive en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>¿Qué debemos hacer? - Cambio Climático</title>
+
+    <!-- CONFIGURACIÓN BOOTSTRAP -->
+    <!-- Hoja de estilos de Bootstrap para componentes y diseño responsive -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- JavaScript de Bootstrap para funcionalidad interactiva -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <!-- CSS Personalizado - Estilos específicos del proyecto -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body> <!-- Cuerpo de la página -->
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- Logo/Título principal con enlace a la página de inicio -->
+            <a style="color: rgb(0, 60, 255);" class="navbar-brand" href="bienvenida.html">El cambio climático.</a>
+
+            <!-- BOTÓN HAMBURGUESA - Menú colapsable para dispositivos móviles -->
+            <button style="color: rgb(0, 60, 255);" class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- LINKS DE NAVEGACIÓN -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Enlace a ¿Qué es? -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="quees.html">¿Qué es?</a>
+                    </li>
+                    <!-- Enlace a ¿Qué se ha hecho? -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="discusion.html">¿Qué se ha hecho al respecto?</a>
+                    </li>
+                    <!-- Enlace activo - Página actual -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="debemoshacer.html">¿Qué debemos hacer al respecto?</a>
+                    </li>
+                    <!-- Enlace a Consecuencias -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="resultados.html">Consecuencias</a>
+                    </li>
+                    <!-- MENÚ DESPLEGABLE - Información adicional -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            Más sobre el cambio climático
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Subenlace a Metodología -->
+                            <li><a class="dropdown-item" href="metodologia.html">Metodología u estudios científicos sobre el cambio climático</a></li>
+                            <!-- Subenlace a Referencias -->
+                            <li><a class="dropdown-item" href="referencias.html">Referencias bibliográficas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container mt-4">
+
+        <!-- SECCIÓN: ¿QUÉ DEBEMOS HACER AL RESPECTO? -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4 text-primary">¿Qué debemos hacer al respecto?</h2>
+                <p class="lead text-center mb-4"> 
+                    Las personas pueden marcar una diferencia significativa mediante la suma de pequeñas acciones cotidianas y decisiones conscientes en su estilo de vida. 
+                    <br><br>
+                    Estos cambios reducen su huella de carbono personal y envían señales importantes al mercado y a los gobiernos.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4 text-primary">¿Qué hacer?</h2>
+
+        <!-- TARJETAS DE ACCIONES - Primera fila -->
+        <div class="row g-4 mb-5">
+            <!-- TARJETA 1 - Ahorro de energía -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ahorro de Energía en Casa.</h5>
+                        <p class="card-text">
+                            Gran parte de la electricidad y la calefacción se generan quemando combustibles fósiles, por lo que reducir el consumo energético es fundamental. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2 - Movilidad sostenible -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Movilidad Sostenible.</h5>
+                        <p class="card-text">
+                            El transporte es una fuente importante de emisiones de carbonos.
+                            <br><br>
+                            Siempre que sea posible, opta por métodos de transporte activos o colectivos en lugar del coche particular, o medios de transporte propios como bicicleta, entre más alternativas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 3 - Consumo responsable -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Consumo Responsable y Dieta.</h5>
+                        <p class="card-text">
+                            Planifica tus comidas, almacena la comida correctamente y composta los restos orgánicos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETAS DE ACCIONES - Segunda fila -->
+        <div class="row g-4 mb-5">
+            <!-- TARJETA 4 - Reducir plástico -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Reduce el uso de plástico de un solo uso.</h5>
+                        <p class="card-text">
+                            Evita activamente los envases desechables.
+                            <br><br> 
+                            Lleva siempre contigo una botella de agua reutilizable en lugar de comprar agua embotellada, utiliza bolsas de tela para la compra y, si pides comida para llevar, considera rechazar los cubiertos de plástico innecesarios
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 5 - Consumidor digital -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sé un consumidor digital consciente.</h5>
+                        <p class="card-text">
+                            Aunque no lo parezca, almacenar datos en la nube, enviar correos electrónicos innecesarios y ver vídeos en streaming de forma continua consume grandes cantidades de energía en los centros de datos. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 6 - Slow Fashion -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Opta por la "moda lenta" (Slow Fashion).</h5>
+                        <p class="card-text">
+                            La industria de la moda es una de las más contaminantes del mundo. En lugar de comprar ropa nueva constantemente (fast fashion), cuida la ropa que ya tienes, repara las prendas que se dañen, compra ropa de segunda mano o invierte en marcas sostenibles. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: ¿CÓMO LO DEBEMOS HACER? -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4 text-primary">¿Cómo lo debemos hacer?</h2>
+                <p class="lead text-center mb-4">
+                    Para integrar acciones climáticas en tu día a día, la clave es la conciencia y la planificación.
+                    <br><br>
+                    Comienza revisando tus rutinas: planifica tus comidas para reducir el desperdicio y desorden; utiliza listas de la compra y lleva tus propias bolsas y botellas reutilizables para evitar plásticos.
+                    <br><br> 
+                    En casa, desconecta los aparatos que no uses.
+                    <br><br> 
+                    Para el transporte, prioriza caminar, la bicicleta o el transporte público, y considera el bus público para viajes largos.
+                    <br><br> 
+                    En cuanto al consumo, opta por la moda lenta, y si puedes, cambia a un proveedor de energía renovable.
+                    <br><br> 
+                    Se trata de adoptar pequeños hábitos, paso a paso, no de un solo choque ya que perderás la conciencia de lo que haces, empieza con pasos graduales y consistentes que, sumados, generan un impacto real.
+                </p>
+            </div>
+        </div>
+
+    </div> <!-- Fin del contenedor principal -->
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 Hecho con ❤️ para nuestro planeta tierra</p>
+        </div>
+    </footer>
+
+</body>
+</html>

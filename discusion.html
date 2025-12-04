@@ -1,0 +1,239 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Elemento raíz, idioma español -->
+<head> <!-- Encabezado del documento -->
+    <!-- Configuración de codificación de caracteres UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configuración para diseño responsive en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>¿Qué se ha hecho? - Cambio Climático</title>
+
+    <!-- CONFIGURACIÓN BOOTSTRAP -->
+    <!-- Hoja de estilos de Bootstrap para componentes y diseño responsive -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- JavaScript de Bootstrap para funcionalidad interactiva -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <!-- CSS Personalizado - Estilos específicos del proyecto -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body> <!-- Cuerpo de la página -->
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- Logo/Título principal con enlace a la página de inicio -->
+            <a style="color: rgb(0, 60, 255);" class="navbar-brand" href="bienvenida.html">El cambio climático.</a>
+
+            <!-- BOTÓN HAMBURGUESA - Menú colapsable para dispositivos móviles -->
+            <button style="color: rgb(0, 60, 255);" class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- LINKS DE NAVEGACIÓN -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Enlace a ¿Qué es? -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="quees.html">¿Qué es?</a>
+                    </li>
+                    <!-- Enlace activo - Página actual -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="discusion.html">¿Qué se ha hecho al respecto?</a>
+                    </li>
+                    <!-- Enlace a ¿Qué debemos hacer? -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="debemoshacer.html">¿Qué debemos hacer al respecto?</a>
+                    </li>
+                    <!-- Enlace a Consecuencias -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="resultados.html">Consecuencias</a>
+                    </li>
+                    <!-- MENÚ DESPLEGABLE - Información adicional -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            Más sobre el cambio climático
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Subenlace a Metodología -->
+                            <li><a class="dropdown-item" href="metodologia.html">Metodología u estudios científicos sobre el cambio climático</a></li>
+                            <!-- Subenlace a Referencias -->
+                            <li><a class="dropdown-item" href="referencias.html">Referencias bibliográficas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container mt-4">
+
+        <!-- SECCIÓN: ¿QUÉ SE HA HECHO AL RESPECTO? -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4 text-primary">¿Qué se ha hecho al respecto?</h2>
+                <p class="lead text-center mb-4">
+                    El mundo ha respondido al cambio climático a través de acuerdos internacionales como el Acuerdo de París, que busca limitar el calentamiento global, y mediante la transición energética hacia fuentes renovables y la adopción de tecnologías limpias. 
+                    <br><br>
+                    A nivel individual, las personas pueden contribuir cambiando a vehículos eléctricos o reduciendo su consumo energético.
+                    <br><br> 
+                    Sin embargo, las emisiones de gases de efecto invernadero siguen aumentando y los impactos del cambio climático, como eventos meteorológicos extremos y aumento del nivel del mar, son cada vez más evidentes.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: ACUERDOS INTERNACIONALES -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4 text-primary">Acuerdos y Marcos Internacionales</h2>
+                <p class="lead text-center mb-4">
+                    El Protocolo de Kioto: Fue uno de los primeros tratados que estableció objetivos legalmente vinculantes de reducción de emisiones para los países desarrollados.
+                    <br><br>
+                    El Acuerdo de París: Adoptado en 2015, es el principal tratado internacional vigente. Por primera vez, todos los países firmantes se comprometieron a tomar medidas para limitar el calentamiento global "muy por debajo de 2°C" y proseguir los esfuerzos para limitarlo a 1,5°C sobre los niveles preindustriales. Cada país presenta sus propias contribuciones determinadas a nivel nacional (NDC) y actualiza sus planes periódicamente.
+                </p>
+            </div>
+        </div>
+
+        <!-- TARJETAS DE ACUERDOS -->
+        <div class="container my-5">
+            <div class="row g-4 mb-5">
+
+                <!-- TARJETA - Protocolo de Kioto -->
+                <div class="col-md-6 mx-auto">
+                    <div class="card shadow">
+                        <img src="kioto.jpg" class="card-img-top" alt="Protocolo de Kioto">
+                        <div class="card-body">
+                            <h5 class="card-title">Protocolo de Kioto</h5>
+                            <p class="card-text">
+                                Es un instrumento para poner en práctica lo acordado en la Convención Marco de las Naciones Unidas sobre el Cambio Climático.
+                                <br><br>
+                                Fue creado para reducir las emisiones de gases de efecto (GEI) invernadero que causan el calentamiento global
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TARJETA - Acuerdo de París -->
+                <div class="col-md-6 mx-auto">
+                    <div class="card shadow">
+                        <img src="https://cambioclimatico.org.bo/wp-content/uploads/2016/05/Cop21-800x400.jpg" 
+                            class="card-img-top" alt="Acuerdo de París">
+                        <div class="card-body">
+                            <h5 class="card-title">Acuerdo de París</h5>
+                            <p class="card-text">
+                                Es un instrumento para poner en práctica lo acordado en la Convención Marco de las Naciones Unidas sobre el Cambio Climático.
+                                <br><br>
+                                Fue creado para reducir las emisiones de gases de efecto (GEI) invernadero que causan el calentamiento global
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4 text-primary">Otras acciones secundarias:</h2>
+        <h5 class="text-center mb-4 text-secondary">Organizaciones o movimientos ambientales globales...</h5>
+
+        <!-- TARJETAS DE ORGANIZACIONES - Primera fila -->
+        <div class="row g-4 mb-5">
+            <!-- TARJETA 1 - Greenpeace -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Greenpeace.</h5>
+                        <p class="card-text">
+                            Organización famosa por sus acciones directas y, a veces, controvertidas para denunciar la contaminación y la inacción climática. 
+                            <br><br>
+                            Han liderado campañas icónicas para salvar ballenas, protestar contra la energía nuclear y la deforestación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2 - WWF -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Fondo Mundial para la Naturaleza (WWF).</h5>
+                        <p class="card-text">
+                            Organización concentrada en la conservación de la naturaleza y la reducción de las amenazas más apremiantes para la diversidad de la vida en la Tierra.
+                            <br><br> 
+                            Trabajan en colaboración con gobiernos y empresas para ayudar a cumplir objetivos climáticos nacionales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 3 - PNUMA -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Programa de las Naciones Unidas para el Medio Ambiente (PNUMA o UNEP).</h5>
+                        <p class="card-text">
+                            Aunque es un organismo de la ONU, es un actor clave y muy conocido que coordina la respuesta ambiental de la organización, ayudando a países a implementar proyectos de adaptación y mitigación
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETAS DE ORGANIZACIONES - Segunda fila -->
+        <div class="row g-4 mb-5">
+            <!-- TARJETA 4 - Fridays for Future -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Viernes por el Futuro (Fridays for Future).</h5>
+                        <p class="card-text">
+                            Este movimiento fue iniciado por la activista sueca Greta Thunberg. Consiste en huelgas escolares semanales que evolucionaron en manifestaciones masivas a nivel mundial, movilizando a millones de jóvenes para exigir acción climática inmediata a los líderes políticos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 5 - Extinction Rebellion -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Extinction Rebellion (XR).</h5>
+                        <p class="card-text">
+                            Un movimiento de desobediencia civil que utiliza métodos no violentos, como la paralización de calles y edificios públicos, para presionar a los gobiernos a actuar radicalmente contra la crisis climática.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 6 - COP -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Conferencias de las Partes (COP).</h5>
+                        <p class="card-text">
+                            Aunque son eventos intergubernamentales, las COP son conocidas mundialmente y atraen una enorme atención mediática y de la sociedad civil. Es donde se negoció y firmó el Acuerdo de París, y cada año son el centro de la acción climática global.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- Fin del contenedor principal -->
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 Hecho con ❤️ para nuestro planeta tierra</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,341 +1,251 @@
-<!DOCTYPE html> <!-- Tipo html -->
-<html lang="español"> <!-- Lenguaje en español -->
-<head> <!-- Se abre header -->
-  <meta charset="UTF-8"> <!-- Csaracteres utf-8-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuracion html-->
-  <title>Introduccion - Cambio climatico</title> <!-- Titulo de la pagina -->
+<!DOCTYPE html> <!-- Declaración del tipo de documento HTML5 -->
+<html lang="es"> <!-- Elemento raíz, idioma español -->
+<head> <!-- Encabezado del documento -->
+    <!-- Configuración de codificación de caracteres UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configuración para diseño responsive en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece en la pestaña del navegador -->
+    <title>¿Qué es? - Cambio Climático</title>
 
-  <!-- CONFIGURACION BOOTSTRAP: -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-
-</head> <!-- Se cierra header -->
-<body> <!-- Cuerpo de la pagina -->
-
-
-
-    <!--  BARRA DE NAVEGACION -->
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary"> <!-- Configuracion de bootstrap -->
-    <div class="container-fluid"> <!-- Configuracion de bootstrap-->
-      <a style="color: rgb(0, 60, 255);" class="navbar-brand" href="bienvenida.html">El cambio climatico.</a> <!-- Link ReposteryFlow color morado-->
-
-
-      <!-- BOTON HAMBURGUESA -->
-      <button style="color: rgb(0, 60, 255);" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"   aria-expanded="false" aria-label="Toggle navigation"> <!-- Boton hamburguesa que se pone morado cuando se abre-->
-        <span class="navbar-toggler-icon"></span> <!-- Configuracion de bootstrap -->
-      </button> <!-- Se cierra el boton -->
-
-
-      <!-- LINKS -->
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">  <!-- Configuracion de bootstrap -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0"> <!-- Configuracion de bootstrap con los links; Lista desordenada -->
-          <li class="nav-item"> <!-- Configuracion de bootstrap -->
-            <a class="nav-link active" aria-current="page" href="quees.html">¿Qué es?</a> <!-- Link Contactanos-->
-          </li>
-          <li class="nav-item"> <!-- Configuracion de bootstrap -->
-            <a class="nav-link active" aria-current="page" href="discusion.html">¿Qué se ha hecho al respecto?</a> <!-- Link Contactanos-->
-          </li>
-          <li class="nav-item"> <!-- Configuracion de bootstrap -->
-            <a class="nav-link active" aria-current="page" href="debemoshacer.html">¿Qué debemos hacer al respecto?</a> <!-- Link Contactanos-->
-          </li>
-           <li class="nav-item"> <!-- Configuracion de bootstrap -->
-            <a class="nav-link active" aria-current="page" href="origenes.html">Origenes</a> <!-- Link Contactanos-->
-          </li>
-          <li class="nav-item"> <!-- Configuracion de bootstrap -->
-            <a class="nav-link active" aria-current="page" href="resultados.html">Consecuencias</a> <!-- Link Contactanos-->
-          </li>
-
-          <!-- BOTON DESPLEGABLE DE DOS LINKS MAS -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Más sobre el cambio climatico <!-- Boton que mostrara las otras dos opciones-->
-            </a>
-            <ul class="dropdown-menu"> <!-- Cuando se de a mas sobre nosotros se mostrara: -->
-              <li><a class="dropdown-item" href="metodologia.html">Metodología u estudios cientificos sobre el cambio climatico</a></li> <!-- Link Patrocinadores-->
-              <li><a class="dropdown-item" href="referencias.html">Referencias bibliograficas</a></li> <!-- Link Historia-->
-              
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <br>
-  <br>
-
-  <!-- Contenedor centrado de texto-->
-  <div class="container mt-4">
-
-    <!-- Contenedor de carrusel de imagenes centrado -->
-
-
+    <!-- CONFIGURACIÓN BOOTSTRAP -->
+    <!-- Hoja de estilos de Bootstrap para componentes y diseño responsive -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- JavaScript de Bootstrap para funcionalidad interactiva -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
+    <!-- CSS Personalizado - Estilos específicos del proyecto -->
+    <link rel="stylesheet" href="styles.css">
+</head>
 
+<body> <!-- Cuerpo de la página -->
 
-    <!-- Contenedor de texto quienes somos centrado-->
-    <div class="row mb-4"> <!-- Configuracion de bootstrap -->
-      <div class="col-12"> <!-- Configuracion de bootstrap -->
-        <h2 class="text-center mb-4 text-primary">¿Que es el cambio climatico? </h2> <!-- Texto tipo titulo-->
-        <p class="lead text-center mb-4"> 
-             El cambio climático son las variaciones a largo plazo en las temperaturas y los patrones climáticos, que pueden ser naturales o causadas por actividades humanas como la quema de combustibles fósiles y la deforestación. <br><br>
-            Este fenómeno provoca efectos como el aumento del nivel del mar, sequías, inundaciones y temperaturas más extremas, que a su vez afectan la biodiversidad y la disponibilidad de alimentos<br><br>
-        El calentamiento global es la manifestación más evidente del cambio climático y se refiere al aumento promedio de las temperaturas terrestres y marinas. </p><!-- Centrar -->
-      </div>
-    </div>
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <!-- Logo/Título principal con enlace a la página de inicio -->
+            <a style="color: rgb(0, 60, 255);" class="navbar-brand" href="bienvenida.html">El cambio climático.</a>
 
+            <!-- BOTÓN HAMBURGUESA - Menú colapsable para dispositivos móviles -->
+            <button style="color: rgb(0, 60, 255);" class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-
-
-
-
-    <div class="row mb-4"> <!-- Configuracion de bootstrap -->
-      <div class="col-12"> <!-- Configuracion de bootstrap -->
-        <h2 class="text-center mb-4 text-primary">¿Por que se origina? </h2> <!-- Texto tipo titulo-->
-        <p class="lead text-center mb-4"> El cambio climático se origina principalmente por las actividades humanas que liberan grandes cantidades de gases de efecto invernadero (GEI) a la atmósfera, como la quema de combustibles fósiles, la deforestación, la ganadería intensiva y el uso de fertilizantes<br><br>
-        Estos gases atrapan el calor del sol, provocando un calentamiento global a un ritmo sin precedentes.  </p> <!-- Centrar -->
-      </div>
-    </div>
-    <br>
-    <h2 class="text-center mb-4 text-primary">Causas principales: </h2>
-    <br>
-    <!-- Tarjetas de por que preferirnos -->
-
-    <!-- PRIMERA TARJETA  -->
-    <div class="row g-4 mb-5">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-primary">
-          <div class="card-body text-center">
-            <!-- EMOJI TIPO GRANDE CON CONFIG. DE BOOTSTRAP-->
-            <h5 class="card-title">Quema de combustibles fósiles.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text">
-              La combustión de carbón, petróleo y gas para el transporte y la generación de energía libera dióxido de carbono (CO2) y óxido nitroso (N20).
-            </p> <!-- Texto -->
-          </div>
-        </div>
-      </div>
-
-
-      <!-- SEGUNDA TARJETA  -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-success">
-          <div class="card-body text-center">
-              <!-- EMOJI TIPO GRANDE CON CONFIG. DE BOOTSTRAP-->
-            <h5 class="card-title">Deforestación.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text">
-              Los árboles absorben (CO2), por lo que al talarlos se reduce la capacidad de la Tierra para regular el clima y se libera el carbono almacenado en los árboles.
-            </p> <!-- Texto -->
-          </div>
-        </div>
-      </div>
-       <!-- TERCERA TARJETA  -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-info">
-          <div class="card-body text-center">
-             <!-- EMOJI TIPO GRANDE CON CONFIG. DE BOOTSTRAP-->
-            <h5 class="card-title">Uso de fertilizantes.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text">
-               Los fertilizantes que contienen nitrógeno liberan óxido nitroso a la atmósfera.. Afectandola de manera masiva.
-            </p> <!-- Texto -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PRIMERA TARJETA  -->
-    <div class="row g-4 mb-5">
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-primary">
-          <div class="card-body text-center">
-             <!-- EMOJI TIPO GRANDE CON CONFIG. DE BOOTSTRAP-->
-            <h5 class="card-title">Gases fluorados.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text">
-              Ciertos productos y procesos industriales liberan gases fluorados, que tienen un efecto de calentamiento miles de veces más potente que el (CO2).
-            </p> <!-- Texto -->
-          </div>
-        </div>
-      </div>
-
-
-      <!-- SEGUNDA TARJETA  -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-success">
-          <div class="card-body text-center">
-             <!-- EMOJI TIPO GRANDE CON CONFIG. DE BOOTSTRAP-->
-            <h5 class="card-title">Estilo de vida y consumo.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text">
-              Nuestro estilo de vida, incluyendo el consumo de energía en el hogar, el modo de transporte, los hábitos alimenticios y el consumo de bienes, influye directamente en la emisión de gases de efecto invernadero. 
-            </p> <!-- Texto -->
-          </div>
-        </div>
-      </div>
-       <!-- TERCERA TARJETA  -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-info">
-          <div class="card-body text-center">
-             <!-- EMOJI TIPO GRANDE CON CONFIG. DE BOOTSTRAP-->
-            <h5 class="card-title">Mal gestion de ganaderia.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text">
-              La digestión del ganado, como las vacas y ovejas, produce metano (CH4). El cultivo de arroz y la descomposición de materia orgánica en vertederos también son fuentes importantes de metano.
-            </p> <!-- Texto -->
-          </div>
-        </div>
-      </div>
-    </div>
-
-        <h3 class="text-center mb-4 text-secondary">Mira algunas fotos representativas ...</h3> <!-- Texto -->
-
-    <!-- Configuracion de bootstrap -->
-    <div class="card shadow mb-4">
-      <div id="carouselHero" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="2"></button>
-        </div>
-
-
-        <!-- Primera imagen -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://cdn.pixabay.com/photo/2021/11/08/17/09/iceberg-6779681_1280.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Pastelería">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
-              <h5>Daños en el ecosistema.</h5> <!-- Primer texto arriba -->
-              <p>El cambio climatico derrite los polos y causa deshielo en ellos..</p> <!-- Segundo texto abajo-->
+            <!-- LINKS DE NAVEGACIÓN -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Enlace activo - Página actual -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="quees.html">¿Qué es?</a>
+                    </li>
+                    <!-- Enlace a ¿Qué se ha hecho? -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="discusion.html">¿Qué se ha hecho al respecto?</a>
+                    </li>
+                    <!-- Enlace a ¿Qué debemos hacer? -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="debemoshacer.html">¿Qué debemos hacer al respecto?</a>
+                    </li>
+                    <!-- Enlace a Consecuencias -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="resultados.html">Consecuencias</a>
+                    </li>
+                    <!-- MENÚ DESPLEGABLE - Información adicional -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            Más sobre el cambio climático
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Subenlace a Metodología -->
+                            <li><a class="dropdown-item" href="metodologia.html">Metodología u estudios científicos sobre el cambio climático</a></li>
+                            <!-- Subenlace a Referencias -->
+                            <li><a class="dropdown-item" href="referencias.html">Referencias bibliográficas</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-          </div>
-
-
-
-          <!-- Segunda imagen -->
-          <div class="carousel-item">
-            <img src="https://media.istockphoto.com/id/1497304331/photo/firefighters-battle-a-wildfire-because-el-nino-events-climate-change-and-global-warming-is-a.jpg?s=612x612&w=0&k=20&c=Kt1E-MnTSNvLnwbDZHmKVxc82Dq8kD69aBd3gupJj40=" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Pastelitos">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
-              <h5>Calentamiento global.</h5> <!-- Primer texto arriba -->
-              <p>El cambio climatico cada vez mas afecta la temperatura global, causando incendios,puntos extremos de baja y alta temperatura,etc.</p> <!-- Segundo texto abajo-->
-            </div>
-          </div>
-
-
-          <!-- Tercera imagen -->
-          <div class="carousel-item">
-            <img src="https://cdn.pixabay.com/photo/2015/05/22/23/25/drought-780088_1280.jpg" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Galletas">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-3">
-              <h5>Sequías.</h5> <!-- Primer texto arriba -->
-              <p>El cambio climatico cada vez aumenta la cantidad de periodos intensos sin lluvia,generando escasez de hidratacion en la tierra..</p> <!-- Segundo texto abajo-->
-            </div>
-          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev"> <!-- Boton devolver la anterior imagen -->
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next"> <!-- Boton ir a la siguiente imagen -->
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
+    </nav>
 
+    <br><br>
 
-<!--- SECCION DE EJEMPLO DE PRODUCTO-->
-    <!-- Contenedor de texto centrado-->
-    <div class="row mb-5">
-      <div class="col-12">
-        <h3 class="text-center mb-4 text-secondary">Mira lo que hacemos cada día sin darnos cuenta...</h3> <!-- Texto -->
-      </div>
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="container mt-4">
 
-      <!--Imagen centrada-->
-      <div class="col-md-6 mx-auto">
-        <div class="card shadow">
-          <img src="https://cdn.pixabay.com/photo/2016/10/22/21/54/industry-1761801_1280.jpg" class="card-img-top" alt="Pastel rosa"> <!-- imagen-->
-          <div class="card-body"> <!-- Configuracion de bootstrap -->
-            <h5 class="card-title">Concientiza.</h5> <!-- Texto tipo titulo-->
-            <p class="card-text"> <!-- Configuracion de bootstrap -->
-              ¿No crees que es ya es tiempo de parar contra el cambio climatico?.
-              Todo esto y aun mas cosas peores le hacemos al mundo cada dia.. Y debemos saber sus causas.
-            </p> <!-- Texto -->
-            <div class="d-grid"> <!-- Configuracion de bootstrap -->
-              <a href="origenes.html" class="btn btn-primary">Conocer sobre el origen del cambio climatico.</a> <!-- Hipervinculo -->
+        <!-- SECCIÓN: ¿QUÉ ES EL CAMBIO CLIMÁTICO? -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4 text-primary">¿Qué es el cambio climático?</h2>
+                <p class="lead text-center mb-4"> 
+                    El cambio climático son las variaciones a largo plazo en las temperaturas y los patrones climáticos, que pueden ser naturales o causadas por actividades humanas como la quema de combustibles fósiles y la deforestación. 
+                    <br><br>
+                    Este fenómeno provoca efectos como el aumento del nivel del mar, sequías, inundaciones y temperaturas más extremas, que a su vez afectan la biodiversidad y la disponibilidad de alimentos.
+                    <br><br>
+                    El calentamiento global es la manifestación más evidente del cambio climático y se refiere al aumento promedio de las temperaturas terrestres y marinas.
+                </p>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!--- SECCION PREGUNTAS FRECUENTES -->
 
-    <div class="row mb-5">
-      <div class="col-lg-8 mx-auto">
-        <h2 class="text-center mb-4 text-primary">Preguntas frecuentes </h2> <!-- Texto tipo titulo-->
-        <div class="accordion accordion-flush shadow" id="accordionFAQ">
-
-
-          <!-- PRIMERA PREGUNTA -->
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                <strong>¿Qué diferencia hay entre calentamiento global y cambio climático?</strong> <!-- Texto en negrita -->
-              </button>
-            </h2>
-            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-              <div class="accordion-body">
-                 El calentamiento global es el aumento de la temperatura media global, mientras que el cambio climático es un término más amplio que incluye el calentamiento, los cambios en patrones de lluvia, el aumento del nivel del mar, etc.. <!-- Texto -->
-              </div>
+        <!-- SECCIÓN: ¿POR QUÉ SE ORIGINA? -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="text-center mb-4 text-primary">¿Por qué se origina?</h2>
+                <p class="lead text-center mb-4">
+                    El cambio climático se origina principalmente por las actividades humanas que liberan grandes cantidades de gases de efecto invernadero (GEI) a la atmósfera, como la quema de combustibles fósiles, la deforestación, la ganadería intensiva y el uso de fertilizantes.
+                    <br><br>
+                    Estos gases atrapan el calor del sol, provocando un calentamiento global a un ritmo sin precedentes.
+                </p>
             </div>
-          </div>
-
-
-          <!-- SEGUNDA PREGUNTA -->
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                <strong>¿Cuáles son los principales riesgos del cambio climático?</strong> <!-- Texto en negrita -->
-              </button>
-            </h2>
-            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-              <div class="accordion-body">
-                Una de las principales razones por las que los científicos están tan preocupados por el cambio climático es la velocidad a la que se está produciendo. En muchos casos, estos se están desencadenando a un ritmo más rápido que aquel al que los animales, las plantas y los ecosistemas pueden adaptarse de forma segura. Lo mismo ocurre con la civilización humana.
-                <br>
-                <br>
-Nunca habíamos visto que el clima cambiara tan rápidamente, y esto está poniendo en peligro nuestros sistemas alimentarios e hídricos, nuestras infraestructuras e, incluso, nuestras economías. En algunos lugares, estos cambios ya están superando los niveles seguros para los ecosistemas y los seres humanos.
-<br>
-<br>
-
-Por eso, cuanto más hagamos por mitigar estos riesgos, mejor será para todos nosotros.  <!-- Texto -->
-              </div>
-            </div>
-          </div>
-
-
-          <!-- TERCERA PREGUNTA -->
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                <strong>¿Cuánto tiempo tenemos para solucionar el cambio climático?</strong> <!-- Texto en negrita -->
-              </button>
-            </h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
-              <div class="accordion-body">
-                Los estudios científicos demuestran que, si no se frena, el cambio climático agobiaría a nuestras comunidades y supondría una amenaza existencial para determinados ecosistemas.
-
-Estos impactos catastróficos incluyen el aumento del nivel del mar por el derretimiento de las capas de hielo de Groenlandia y la Antártida, lo que inundaría la mayoría de las grandes ciudades costeras del mundo; tormentas, sequías y olas de calor cada vez más frecuentes y graves; pérdidas masivas de cosechas y escasez de agua; y la destrucción a gran escala de hábitats y ecosistemas, lo que provocaría la extinción de especies.<br><br>
-
-Para evitar lo peor del cambio climático, el Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC) afirma que “cada pizca de calentamiento importa” (enlace en inglés). Cuando se trata de poner límites al cambio climático, no hay un umbral mágico: cuanto más rápido reduzcamos nuestras emisiones, mejor será para nosotros. <br><br>
-
-En 2015, todos los países del mundo se unieron y firmaron el Acuerdo de París. Es un tratado internacional jurídicamente vinculante en el que los signatarios se comprometen a mantener “el aumento de la temperatura media mundial en bastante menos que 2 °C (3,5 °F) por encima de los niveles preindustriales” y a hacer esfuerzos “por limitar el aumento de la temperatura a no más de 1,5 °C (2,7 °F) por encima de los niveles preindustriales”. <br><br>
-
-Cada día que pasa, estamos liberando carbono a la atmósfera y aumentando el riesgo para nuestro planeta. Los científicos coinciden en que hay que empezar a reducir las emisiones de carbono AHORA MISMO. <!-- Texto -->
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-   <!-- footer -->
-  <footer class="bg-dark text-white text-center py-4 mt-5">
-    <div class="container">
-      <p class="mb-0">© 2025 Hecho con ❤️ para nuestro planeta tierra</p>
-    </div>
-  </footer>
+
+        <h2 class="text-center mb-4 text-primary">Causas principales:</h2>
+        <br>
+
+        <!-- TARJETAS DE CAUSAS - Primera fila -->
+        <div class="row g-4 mb-5">
+            <!-- TARJETA 1 - Combustibles fósiles -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Quema de combustibles fósiles.</h5>
+                        <p class="card-text">
+                            La combustión de carbón, petróleo y gas para el transporte y la generación de energía libera dióxido de carbono (CO2) y óxido nitroso (N2O).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2 - Deforestación -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Deforestación.</h5>
+                        <p class="card-text">
+                            Los árboles absorben CO2, por lo que al talarlos se reduce la capacidad de la Tierra para regular el clima y se libera el carbono almacenado en los árboles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 3 - Fertilizantes -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Uso de fertilizantes.</h5>
+                        <p class="card-text">
+                            Los fertilizantes que contienen nitrógeno liberan óxido nitroso a la atmósfera, afectándola de manera masiva.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETAS DE CAUSAS - Segunda fila -->
+        <div class="row g-4 mb-5">
+            <!-- TARJETA 4 - Gases fluorados -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-primary">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Gases fluorados.</h5>
+                        <p class="card-text">
+                            Ciertos productos y procesos industriales liberan gases fluorados, que tienen un efecto de calentamiento miles de veces más potente que el CO2.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 5 - Estilo de vida -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-success">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Estilo de vida y consumo.</h5>
+                        <p class="card-text">
+                            Nuestro estilo de vida, incluyendo el consumo de energía en el hogar, el modo de transporte, los hábitos alimenticios y el consumo de bienes, influye directamente en la emisión de gases de efecto invernadero.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 6 - Ganadería -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-info">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Mal gestión de ganadería.</h5>
+                        <p class="card-text">
+                            La digestión del ganado, como las vacas y ovejas, produce metano (CH4). El cultivo de arroz y la descomposición de materia orgánica en vertederos también son fuentes importantes de metano.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-center mb-4 text-secondary">Mira algunas fotos representativas de las causas para que tengas más contexto ...</h3>
+
+        <!-- CARRUSEL DE IMÁGENES -->
+        <div class="card shadow mb-4">
+            <div id="carouselHero" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <!-- Indicadores del carrusel -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="2"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <!-- Imagen 1 - Deforestación -->
+                    <div class="carousel-item active">
+                        <img src="https://cdn.pixabay.com/photo/2022/05/15/17/25/forest-7198607_1280.jpg" 
+                            class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Tala de árboles">
+                        <div class="carousel-caption d-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Deforestación ilegal o mal controlada.</h5>
+                            <p>La mala gestión o la tala ilegal de árboles provocan pérdida de hábitat, alteran ciclos hidrológicos, y degradan el suelo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 2 - Contaminación industrial -->
+                    <div class="carousel-item">
+                        <img src="https://cdn.pixabay.com/photo/2017/08/03/09/20/pollution-2575166_1280.jpg" 
+                            class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Fábricas">
+                        <div class="carousel-caption d-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Gases fluorados o procesos industriales.</h5>
+                            <p>Las fábricas contaminan principalmente al quemar combustibles fósiles para obtener energía, lo que libera gases nocivos y partículas al aire.</p>
+                        </div>
+                    </div>
+
+                    <!-- Imagen 3 - Fertilizantes -->
+                    <div class="carousel-item">
+                        <img src="https://cdn.pixabay.com/photo/2015/08/24/16/57/hydrogen-sulfide-fertilizer-spray-905243_1280.jpg" 
+                            class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Uso de fertilizantes">
+                        <div class="carousel-caption d-block bg-dark bg-opacity-50 rounded p-3">
+                            <h5>Uso de fertilizantes.</h5>
+                            <p>Los fertilizantes contaminan principalmente a través de la escorrentía y la lixiviación, que llevan el exceso de nutrientes como nitrógeno y fósforo a cuerpos de agua como ríos, lagos y océanos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles del carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+
+    </div> <!-- Fin del contenedor principal -->
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">© 2025 Hecho con ❤️ para nuestro planeta tierra</p>
+        </div>
+    </footer>
+
 </body>
 </html>
