@@ -18,7 +18,7 @@ El objetivo general es entender sus impactos negativos en el medio ambiente y en
 
 ⚙️ DISEÑO Y TECNOLOGÍA;
 
-- El proyecto usa HTML5 y Bootstrap para el diseño responsive y los componentes interactivos 
+- El proyecto usa HTML5, CSS3 y Bootstrap para el diseño responsive y los componentes interactivos
 
 - El estilo es un tema claro y con degradaciones en algunas partes para una UX/UI simple,pero hermosa para los usuarios que quieran saber acerca del cambio climatico
 
