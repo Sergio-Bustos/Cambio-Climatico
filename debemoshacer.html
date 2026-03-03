@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" por defecto, el script del head lo sobreescribe si hay preferencia guardada -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué debemos hacer? — Cambio Climático</title>
+
+  <!-- Bootstrap 5 — framework de estilos y componentes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap JS — necesario para el menú colapsable y el dropdown -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts — Playfair Display para títulos, DM Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos propios del sitio -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Aplica el tema guardado antes de que el CSS renderice, evita el parpadeo claro/oscuro -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN — "¿Qué debemos hacer?" marcado como activo -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo con enlace a la portada -->
+      <a class="navbar-brand" href="index.html"><i class="bi bi-globe-americas"></i>Cambio Climático</a>
+
+      <!-- Botón hamburguesa para móvil, abre el menú #navMain -->
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="bi bi-list" style="font-size:1.4rem; color:var(--text-secondary);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="quees.html"><i class="bi bi-info-circle me-1"></i>¿Qué es?</a></li>
+          <li class="nav-item"><a class="nav-link" href="discusion.html"><i class="bi bi-globe2 me-1"></i>¿Qué se ha hecho?</a></li>
+          <!-- Página actual marcada como active -->
+          <li class="nav-item"><a class="nav-link active" href="debemoshacer.html"><i class="bi bi-person-check me-1"></i>¿Qué debemos hacer?</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados.html"><i class="bi bi-activity me-1"></i>Consecuencias</a></li>
+          <!-- Dropdown con páginas secundarias -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-three-dots me-1"></i>Más información</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="metodologia.html"><i class="bi bi-flask"></i> Metodología y estudios</a></li>
+              <li><a class="dropdown-item" href="referencias.html"><i class="bi bi-journals"></i> Referencias</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Botón para alternar entre tema claro y oscuro -->
+        <button class="btn-theme-toggle ms-2" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CABECERA DE PÁGINA — banda con título y descripción introductoria -->
+  <div class="hero-band">
+    <div class="container page-header">
+      <h1 class="heading-underline">¿Qué debemos hacer?</h1>
+      <p class="lead">
+        Las personas pueden marcar una diferencia significativa a través de decisiones cotidianas
+        conscientes que reducen la huella de carbono y envían señales claras al mercado y a
+        los gobiernos.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5 mb-5">
+
+
+    <!-- Primera fila de acciones — 3 tarjetas temáticas -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Acciones concretas que puedes tomar</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: ahorro energético en el hogar -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-lightning-charge-fill"></i></div>
+            <h5 class="card-title">Ahorro de energía en casa</h5>
+            <p class="card-text">
+              Gran parte de la electricidad y la calefacción se generan quemando combustibles
+              fósiles. Reducir el consumo energético doméstico es una de las medidas con mayor
+              impacto directo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: transporte de bajo impacto -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-bicycle"></i></div>
+            <h5 class="card-title">Movilidad sostenible</h5>
+            <p class="card-text">
+              El transporte representa una fuente importante de emisiones. Prioriza métodos
+              activos o colectivos: caminar, bicicleta, transporte público o compartir vehículo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: alimentación y compras conscientes -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-basket2-fill"></i></div>
+            <h5 class="card-title">Consumo responsable y dieta</h5>
+            <p class="card-text">
+              Planifica tus comidas para minimizar el desperdicio, elige productos locales y de
+              temporada, y composta los restos orgánicos en lugar de enviarlos al vertedero.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /primera fila -->
+
+
+    <!-- Segunda fila de acciones — 3 tarjetas temáticas -->
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: eliminación de plásticos desechables -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-recycle"></i></div>
+            <h5 class="card-title">Reduce el plástico de un solo uso</h5>
+            <p class="card-text">
+              Lleva siempre una botella reutilizable, utiliza bolsas de tela y rechaza cubiertos
+              desechables innecesarios. Cada pequeño rechazo suma a escala colectiva.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: huella digital y centros de datos -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-wifi"></i></div>
+            <h5 class="card-title">Consumidor digital consciente</h5>
+            <p class="card-text">
+              El almacenamiento en la nube y el streaming consumen grandes cantidades de energía
+              en centros de datos. Gestiona tus datos y reduce el contenido innecesario.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: industria textil y consumo de moda -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-scissors"></i></div>
+            <h5 class="card-title">Moda lenta (slow fashion)</h5>
+            <p class="card-text">
+              La industria textil es una de las más contaminantes. Cuida tu ropa, repara prendas
+              dañadas, compra de segunda mano e invierte en marcas sostenibles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /segunda fila -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Guía de hábitos — lista con bullets verdes del design system -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8">
+        <div class="text-center mb-4">
+          <h2 class="heading-underline">¿Cómo integrarlo en tu vida?</h2>
+        </div>
+        <div class="section-block">
+          <p>
+            La clave está en la
+            <strong style="color:var(--text-primary)">conciencia y la planificación gradual</strong>.
+            No se trata de un cambio radical de un día para otro, sino de adoptar hábitos
+            progresivos y consistentes que, sumados, generan un impacto real.
+          </p>
+
+          <!-- Lista con estilo propio definido en styles.css -->
+          <ul class="styled-list mt-3">
+            <li>Planifica tus comidas semanalmente para reducir el desperdicio y simplificar las compras</li>
+            <li>Lleva siempre contigo una botella reutilizable y bolsas de tela</li>
+            <li>Desconecta los electrodomésticos en standby cuando no los uses</li>
+            <li>Para el transporte diario, prioriza caminar, la bicicleta o el transporte público</li>
+            <li>Considera cambiar a un proveedor de energía renovable para tu hogar</li>
+            <li>Antes de comprar algo nuevo, pregúntate si realmente lo necesitas o puedes reparar lo que tienes</li>
+            <li>Comparte estos cambios con tu entorno: el efecto multiplicador es enorme</li>
+          </ul>
+
+          <p class="mt-3 mb-0">
+            Empieza con uno o dos cambios, consolídalos como hábito, y añade el siguiente.
+            La consistencia a largo plazo es más valiosa que un esfuerzo intenso y temporal.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Call-to-action — enlaza a la página de consecuencias -->
+    <div class="cta-block">
+      <h3 class="mb-3">Cada acción cuenta</h3>
+      <p class="lead mb-4" style="max-width:500px; margin:0 auto 1.5rem;">
+        Las consecuencias del cambio climático son reales y están empeorando. Pero todavía
+        estamos a tiempo de limitar los daños más graves.
+      </p>
+      <a href="resultados.html" class="btn btn-primary">
+        <i class="bi bi-arrow-right me-2"></i>Ver las consecuencias actuales
+      </a>
+    </div>
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand"><i class="bi bi-globe-americas"></i>Cambio Climático</div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© 2025 — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    // Aplica el tema recibido, lo guarda y actualiza el ícono del botón
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+
+    // Sincroniza el ícono con el tema que ya aplicó el script del head
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Alterna entre dark y light al hacer clic
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>

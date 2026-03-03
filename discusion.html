@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" inicial; el script del head lo actualiza con el valor guardado -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué se ha hecho? — Cambio Climático</title>
+
+  <!-- Bootstrap 5 CSS y JS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap JS — necesario para el menú colapsable y el dropdown -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts — Playfair Display para títulos, DM Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos propios del sitio -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Previene el flash de tema al cambiar de página -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN — "¿Qué se ha hecho?" marcado como activo -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo con enlace a la portada -->
+      <a class="navbar-brand" href="index.html"><i class="bi bi-globe-americas"></i>Cambio Climático</a>
+
+      <!-- Botón hamburguesa para móvil, abre el menú #navMain -->
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="bi bi-list" style="font-size:1.4rem; color:var(--text-secondary);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="quees.html"><i class="bi bi-info-circle me-1"></i>¿Qué es?</a></li>
+          <!-- Página actual marcada como active -->
+          <li class="nav-item"><a class="nav-link active" href="discusion.html"><i class="bi bi-globe2 me-1"></i>¿Qué se ha hecho?</a></li>
+          <li class="nav-item"><a class="nav-link" href="debemoshacer.html"><i class="bi bi-person-check me-1"></i>¿Qué debemos hacer?</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados.html"><i class="bi bi-activity me-1"></i>Consecuencias</a></li>
+          <!-- Dropdown con páginas secundarias -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-three-dots me-1"></i>Más información</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="metodologia.html"><i class="bi bi-flask"></i> Metodología y estudios</a></li>
+              <li><a class="dropdown-item" href="referencias.html"><i class="bi bi-journals"></i> Referencias</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Botón para alternar entre tema claro y oscuro -->
+        <button class="btn-theme-toggle ms-2" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CABECERA DE PÁGINA — banda con título y descripción introductoria -->
+  <div class="hero-band">
+    <div class="container page-header">
+      <h1 class="heading-underline">¿Qué se ha hecho al respecto?</h1>
+      <p class="lead">
+        Desde acuerdos internacionales vinculantes hasta movimientos civiles masivos, el mundo ha
+        respondido a la crisis climática con distintos niveles de compromiso y efectividad.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5 mb-5">
+
+
+    <!-- Bloque introductorio — contexto general antes de entrar en detalles -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-9">
+        <div class="section-block">
+          <h3 class="mb-3">Una respuesta en construcción</h3>
+          <p>
+            El mundo ha respondido al cambio climático a través de acuerdos internacionales como
+            el Acuerdo de París, la transición hacia energías renovables y el desarrollo de
+            tecnologías limpias. Sin embargo, las emisiones de GEI continúan aumentando y los
+            impactos son cada vez más evidentes.
+          </p>
+          <p class="mb-0">
+            La respuesta global avanza, pero los compromisos adquiridos aún son insuficientes
+            para cumplir los objetivos establecidos por la ciencia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Acuerdos internacionales — 2 tarjetas con imagen de cabecera -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Acuerdos y marcos internacionales</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: Protocolo de Kioto -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <!-- brightness(0.6) oscurece la imagen para que no compita con el texto -->
+          <img src="/images/kioto.jpg" class="card-img-top" alt="Protocolo de Kioto"
+            style="height:180px; object-fit:cover; filter:brightness(0.6);">
+          <div class="card-body">
+            <!-- Ícono + título en la misma línea con flexbox -->
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="card-icon icon-teal" style="width:34px;height:34px;font-size:1rem;margin:0;">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h5 class="card-title mb-0">Protocolo de Kioto (1997)</h5>
+            </div>
+            <p class="card-text">
+              Primer tratado internacional con objetivos legalmente vinculantes de reducción de
+              emisiones para los países desarrollados. Estableció el principio de "responsabilidades
+              comunes pero diferenciadas" entre países industrializados y en desarrollo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Acuerdo de París -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <img src="/images/paris2015.jpg" class="card-img-top" alt="Acuerdo de París"
+            style="height:180px; object-fit:cover; filter:brightness(0.6);">
+          <div class="card-body">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div class="card-icon icon-green" style="width:34px;height:34px;font-size:1rem;margin:0;">
+                <i class="bi bi-patch-check"></i>
+              </div>
+              <h5 class="card-title mb-0">Acuerdo de París (2015)</h5>
+            </div>
+            <p class="card-text">
+              Principal tratado climático vigente. Por primera vez, todos los países firmantes se
+              comprometieron a limitar el calentamiento global "muy por debajo de 2°C" y proseguir
+              esfuerzos para limitarlo a 1.5°C sobre niveles preindustriales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /acuerdos internacionales -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Organizaciones ambientales — primera fila: 3 tarjetas -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Organizaciones y movimientos ambientales</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: Greenpeace -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-flag-fill"></i></div>
+            <h5 class="card-title">Greenpeace</h5>
+            <p class="card-text">
+              Conocida por sus acciones directas para denunciar la inacción climática. Ha liderado
+              campañas icónicas en favor de los océanos, contra la energía nuclear y la deforestación.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: WWF -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-heart-pulse"></i></div>
+            <h5 class="card-title">Fondo Mundial para la Naturaleza (WWF)</h5>
+            <p class="card-text">
+              Centrado en la conservación de la biodiversidad. Colabora con gobiernos y empresas
+              para ayudar a cumplir objetivos climáticos nacionales e internacionales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: PNUMA -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-building-fill"></i></div>
+            <h5 class="card-title">PNUMA (UNEP)</h5>
+            <p class="card-text">
+              Organismo de la ONU que coordina la respuesta ambiental global, apoyando a los países
+              en la implementación de proyectos de adaptación y mitigación climática.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /primera fila organizaciones -->
+
+
+    <!-- Movimientos ciudadanos — segunda fila: 3 tarjetas -->
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: Fridays for Future -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-people-fill"></i></div>
+            <h5 class="card-title">Fridays for Future</h5>
+            <p class="card-text">
+              Iniciado por Greta Thunberg, movilizó a millones de jóvenes en huelgas escolares
+              semanales que se convirtieron en manifestaciones globales exigiendo acción climática
+              inmediata.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Extinction Rebellion -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-slash-circle"></i></div>
+            <h5 class="card-title">Extinction Rebellion (XR)</h5>
+            <p class="card-text">
+              Movimiento de desobediencia civil no violenta que presiona a los gobiernos a actuar
+              radicalmente. Utiliza métodos disruptivos como la paralización de espacios públicos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Conferencias de las Partes -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-globe2"></i></div>
+            <h5 class="card-title">Conferencias de las Partes (COP)</h5>
+            <p class="card-text">
+              Eventos anuales donde se negocian y revisan los compromisos climáticos internacionales.
+              La COP21 de París fue el punto de inflexión donde se firmó el acuerdo más ambicioso
+              hasta la fecha.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /segunda fila movimientos -->
+
+
+    <!-- Call-to-action — enlaza a la página de acciones personales -->
+    <div class="cta-block">
+      <h3 class="mb-3">¿Qué podemos hacer tú y yo?</h3>
+      <p class="lead mb-4" style="max-width:480px; margin:0 auto 1.5rem;">
+        Los acuerdos internacionales son necesarios, pero el cambio también empieza en las
+        decisiones cotidianas de cada persona.
+      </p>
+      <a href="debemoshacer.html" class="btn btn-primary">
+        <i class="bi bi-arrow-right me-2"></i>Ver qué debemos hacer
+      </a>
+    </div>
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand"><i class="bi bi-globe-americas"></i>Cambio Climático</div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© 2025 — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    // Aplica el tema recibido, lo guarda y actualiza el ícono del botón
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+
+    // Sincroniza el ícono con el tema que ya aplicó el script del head
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Alterna entre dark y light al hacer clic
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>

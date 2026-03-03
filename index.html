@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" inicial; el script del head lo sobreescribe con el valor guardado -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambio Climático — Inicio</title>
+
+  <!-- Bootstrap 5 CSS y JS — grid, navbar, carousel y accordion -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts — Playfair Display para títulos, DM Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos propios del sitio -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Aplica el tema guardado antes de que el CSS renderice, evita el parpadeo claro/oscuro -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN — navbar-expand-lg: colapsada en móvil, expandida en desktop -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+
+      <!-- Logo con enlace a la portada -->
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-globe-americas"></i>
+        Cambio Climático
+      </a>
+
+      <!-- Botón hamburguesa visible solo en móvil, abre el menú #navMain -->
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMain"
+        aria-controls="navMain" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="bi bi-list" style="font-size:1.4rem; color:var(--text-secondary);"></i>
+      </button>
+
+      <!-- Contenedor colapsable del menú -->
+      <div class="collapse navbar-collapse" id="navMain">
+        <!-- me-auto empuja los links a la izquierda y el botón de tema a la derecha -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link" href="quees.html">
+              <i class="bi bi-info-circle me-1"></i>¿Qué es?
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="discusion.html">
+              <i class="bi bi-globe2 me-1"></i>¿Qué se ha hecho?
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="debemoshacer.html">
+              <i class="bi bi-person-check me-1"></i>¿Qué debemos hacer?
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="resultados.html">
+              <i class="bi bi-activity me-1"></i>Consecuencias
+            </a>
+          </li>
+
+          <!-- Dropdown con páginas secundarias -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-three-dots me-1"></i>Más información
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="metodologia.html">
+                  <i class="bi bi-flask"></i> Metodología y estudios
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="referencias.html">
+                  <i class="bi bi-journals"></i> Referencias
+                </a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+
+        <!-- Botón para alternar entre tema claro y oscuro -->
+        <button class="btn-theme-toggle ms-2" id="themeToggle" title="Cambiar tema">
+          <i class="bi bi-sun-fill" id="themeIcon"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO — título principal con dos botones de acción -->
+  <section class="hero-band">
+    <div class="container text-center">
+      <h1 class="heading-underline mb-4">El Cambio Climático: una crisis global</h1>
+
+      <!-- Ancho máximo de 680px para que el texto no se extienda demasiado en pantallas anchas -->
+      <p class="lead mx-auto" style="max-width:680px;">
+        Una crisis global impulsada principalmente por la quema de combustibles fósiles y otras
+        actividades humanas que están alterando el clima del planeta a un ritmo sin precedentes
+        en la historia geológica.
+      </p>
+
+      <!-- Dos CTAs: primario hacia el contenido y secundario hacia las consecuencias -->
+      <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
+        <a href="quees.html" class="btn btn-primary">
+          <i class="bi bi-arrow-right me-2"></i>Conocer más
+        </a>
+        <a href="resultados.html" class="btn btn-outline-secondary">
+          <i class="bi bi-bar-chart-line me-2"></i>Ver consecuencias
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5">
+
+
+    <!-- Fila de estadísticas — col-6 col-md-3: 2 columnas en móvil, 4 en desktop -->
+    <div class="row g-3 mb-5">
+
+      <div class="col-6 col-md-3 fade-in-up">
+        <div class="stat-card">
+          <span class="stat-number">1.1°C</span>
+          <span class="stat-label">Aumento desde era preindustrial</span>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 fade-in-up">
+        <div class="stat-card">
+          <span class="stat-number">421 ppm</span>
+          <span class="stat-label">CO₂ atmosférico actual</span>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 fade-in-up">
+        <div class="stat-card">
+          <span class="stat-number">20 cm</span>
+          <span class="stat-label">Aumento nivel del mar (siglo XX)</span>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-3 fade-in-up">
+        <div class="stat-card">
+          <span class="stat-number">97%</span>
+          <span class="stat-label">Científicos que confirman el consenso</span>
+        </div>
+      </div>
+
+    </div><!-- /estadísticas -->
+
+
+    <!-- Carrusel — carousel-fade: transición por fundido, autoplay activado -->
+    <div class="mb-5 fade-in-up">
+      <div id="carouselHero" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <!-- Indicadores de posición -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselHero" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+          <!-- Slide 1: Deshielo -->
+          <div class="carousel-item active">
+            <img src="/images/glaciar.jpg" class="d-block w-100" alt="Deshielo de glaciares">
+            <div class="carousel-caption d-block">
+              <h5>Deshielo Acelerado</h5>
+              <p>Los glaciares del planeta retroceden a un ritmo alarmante, alterando ecosistemas
+                polares y elevando el nivel del mar.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Incendios -->
+          <div class="carousel-item">
+            <img src="/images/incendio.jpg" class="d-block w-100" alt="Incendios forestales">
+            <div class="carousel-caption d-block">
+              <h5>Incendios Forestales</h5>
+              <p>El aumento de temperaturas y las sequías prolongadas incrementan la frecuencia
+                e intensidad de los incendios.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Sequías -->
+          <div class="carousel-item">
+            <img src="/images/sequedad.jpg" class="d-block w-100" alt="Sequías extremas">
+            <div class="carousel-caption d-block">
+              <h5>Sequías Extremas</h5>
+              <p>Periodos prolongados sin lluvia generan escasez hídrica e impactan gravemente
+                la producción agrícola.</p>
+            </div>
+          </div>
+
+        </div><!-- /carousel-inner -->
+
+        <!-- Controles anterior / siguiente -->
+        <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselHero" data-bs-slide="prev">
+          <i class="bi bi-chevron-left text-white fs-5"></i>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselHero" data-bs-slide="next">
+          <i class="bi bi-chevron-right text-white fs-5"></i>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+
+      </div>
+    </div><!-- /carrusel -->
+
+
+    <!-- Tres formas de contribuir — h-100 iguala alturas en la misma fila -->
+    <div class="mb-5">
+      <div class="text-center mb-4">
+        <h2 class="heading-underline">Tres formas de contribuir desde hoy</h2>
+        <p class="lead mt-3 mx-auto" style="max-width:600px;">
+          La lucha contra el cambio climático requiere acción colectiva. A través de pequeños
+          pasos cotidianos se construye un impacto real.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Tarjeta: educación y conciencia ambiental -->
+        <div class="col-md-4 fade-in-up">
+          <div class="card h-100 card-accent-green">
+            <div class="card-body">
+              <div class="card-icon icon-green">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <h5 class="card-title">Educación global</h5>
+              <p class="card-text">
+                Organiza campañas de conciencia y comparte información verificada. La educación
+                ambiental es el primer paso hacia el cambio de comportamientos a escala.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta: reforestación y espacios verdes -->
+        <div class="col-md-4 fade-in-up">
+          <div class="card h-100 card-accent-teal">
+            <div class="card-body">
+              <div class="card-icon icon-teal">
+                <i class="bi bi-tree-fill"></i>
+              </div>
+              <h5 class="card-title">Mejora tu entorno</h5>
+              <p class="card-text">
+                Planta árboles, crea jardines urbanos y apoya proyectos de reforestación y
+                conservación en tu comunidad local.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta: movilidad de bajo impacto -->
+        <div class="col-md-4 fade-in-up">
+          <div class="card h-100 card-accent-amber">
+            <div class="card-body">
+              <div class="card-icon icon-amber">
+                <i class="bi bi-bicycle"></i>
+              </div>
+              <h5 class="card-title">Transporte sostenible</h5>
+              <p class="card-text">
+                Camina, utiliza bicicleta o transporte público. Cada desplazamiento en coche
+                evitado reduce tu huella de carbono de forma significativa.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <!-- Tarjeta destacada con imagen — brightness(0.65) oscurece la imagen -->
+    <div class="row mb-5 justify-content-center">
+      <div class="col-md-8">
+        <div class="card overflow-hidden">
+          <img src="/images/contaminacion.jpg" class="card-img-top" alt="Contaminación industrial"
+            style="height:240px; object-fit:cover; filter:brightness(0.65);">
+          <div class="card-body text-center">
+            <h4 class="card-title">Es momento de actuar</h4>
+            <p class="card-text mb-4">
+              Cada día nuestras acciones impactan el planeta. Las industrias, el transporte y
+              los hábitos de consumo continúan emitiendo gases de efecto invernadero.
+              El tiempo para tomar decisiones es ahora.
+            </p>
+            <a href="quees.html" class="btn btn-primary">
+              <i class="bi bi-arrow-right me-2"></i>Conocer más sobre el cambio climático
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FAQ con accordion — data-bs-parent fuerza que solo un item esté abierto a la vez -->
+    <div class="row mb-5 justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-4">
+          <h2 class="heading-underline">Dudas frecuentes sobre el cambio climático</h2>
+        </div>
+
+        <div class="accordion" id="accordionFAQ">
+
+          <!-- Pregunta 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq1"
+                aria-expanded="false" aria-controls="faq1">
+                ¿Qué diferencia hay entre calentamiento global y cambio climático?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+              <div class="accordion-body">
+                El <strong>calentamiento global</strong> se refiere al aumento de la temperatura
+                media de la atmósfera y los océanos. El <strong>cambio climático</strong> es un
+                término más amplio que engloba ese calentamiento y todas sus consecuencias:
+                alteraciones en los patrones de precipitación, aumento del nivel del mar,
+                derretimiento de glaciares, eventos climáticos extremos y cambios en los ecosistemas.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pregunta 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq2"
+                aria-expanded="false" aria-controls="faq2">
+                ¿Cuáles son los principales riesgos del cambio climático?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+              <div class="accordion-body">
+                La mayor preocupación es la velocidad del cambio. Los ecosistemas, la flora,
+                la fauna y la civilización humana tienen dificultades para adaptarse tan rápido.
+                Esto pone en riesgo los sistemas alimentarios, las fuentes hídricas, la
+                infraestructura y las economías globales. En varias regiones ya se superan
+                los umbrales seguros para los seres humanos.
+              </div>
+            </div>
+          </div>
+
+          <!-- Pregunta 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#faq3"
+                aria-expanded="false" aria-controls="faq3">
+                ¿Cuánto tiempo tenemos para actuar?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFAQ">
+              <div class="accordion-body">
+                El Acuerdo de París de 2015 estableció el objetivo de mantener el aumento por
+                debajo de 2°C y proseguir esfuerzos para limitarlo a 1.5°C. Según el IPCC,
+                cada fracción de grado importa. No existe un umbral mágico: cuanto antes
+                reduzcamos las emisiones, menores serán los daños para las generaciones futuras.
+                La ventana de acción eficaz se estrecha cada año.
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+      </div>
+    </div><!-- /FAQ -->
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER — tres columnas: brand | descripción | copyright -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand">
+        <i class="bi bi-globe-americas"></i>
+        Cambio Climático
+      </div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© 2025 — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    // Aplica el tema recibido, lo guarda y actualiza el ícono del botón
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      if (theme === 'dark') {
+        icon.className = 'bi bi-sun-fill';    // muestra sol para "pasar a claro"
+        btn.title = 'Cambiar a modo claro';
+      } else {
+        icon.className = 'bi bi-moon-fill';   // muestra luna para "pasar a oscuro"
+        btn.title = 'Cambiar a modo oscuro';
+      }
+    }
+
+    // Sincroniza el ícono con el tema que ya aplicó el script del head
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Alterna entre dark y light al hacer clic
+    btn.addEventListener('click', function() {
+      const current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>

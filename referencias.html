@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" inicial; el script del head lo sobreescribe con el valor guardado -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referencias — Cambio Climático</title>
+
+  <!-- Bootstrap 5 CSS y JS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap JS — necesario para el menú colapsable y el accordion -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts — Playfair Display para títulos, DM Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos propios del sitio -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Aplica el tema guardado antes de que el CSS renderice, evita el parpadeo claro/oscuro -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN — dropdown "Más información" marcado como activo por ser página hija -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo con enlace a la portada -->
+      <a class="navbar-brand" href="index.html"><i class="bi bi-globe-americas"></i>Cambio Climático</a>
+
+      <!-- Botón hamburguesa para móvil, abre el menú #navMain -->
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="bi bi-list" style="font-size:1.4rem; color:var(--text-secondary);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="quees.html"><i class="bi bi-info-circle me-1"></i>¿Qué es?</a></li>
+          <li class="nav-item"><a class="nav-link" href="discusion.html"><i class="bi bi-globe2 me-1"></i>¿Qué se ha hecho?</a></li>
+          <li class="nav-item"><a class="nav-link" href="debemoshacer.html"><i class="bi bi-person-check me-1"></i>¿Qué debemos hacer?</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados.html"><i class="bi bi-activity me-1"></i>Consecuencias</a></li>
+          <!-- Dropdown activo porque esta página es hija de "Más información" -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-three-dots me-1"></i>Más información</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="metodologia.html"><i class="bi bi-flask"></i> Metodología y estudios</a></li>
+              <li><a class="dropdown-item" href="referencias.html"><i class="bi bi-journals"></i> Referencias</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Botón para alternar entre tema claro y oscuro -->
+        <button class="btn-theme-toggle ms-2" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CABECERA DE PÁGINA — banda con título y descripción introductoria -->
+  <div class="hero-band">
+    <div class="container page-header">
+      <h1 class="heading-underline">Referencias bibliográficas</h1>
+      <p class="lead">
+        Todas las fuentes listadas aquí son de acceso público y representan el consenso
+        científico actual. Se recomienda siempre priorizar la literatura revisada por pares.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5 mb-5">
+
+
+    <!-- Organizaciones internacionales — 4 tarjetas con layout ícono + texto + botón -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Organizaciones internacionales de referencia</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: portal oficial de la ONU sobre cambio climático -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <!-- d-flex gap-3: ícono y texto en fila, flex-shrink:0 evita que el ícono se comprima -->
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-teal" style="flex-shrink:0;">
+                <i class="bi bi-globe2"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Naciones Unidas — Cambio Climático</h5>
+                <p class="card-text mb-3">
+                  Portal oficial de la ONU con información sobre acuerdos internacionales,
+                  COPs y acciones climáticas globales.
+                </p>
+                <!-- target="_blank" abre en nueva pestaña; rel="noopener" previene acceso al contexto de la página -->
+                <a href="https://www.un.org/es/climatechange" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: informes de evaluación del consenso científico global -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-green" style="flex-shrink:0;">
+                <i class="bi bi-journals"></i>
+              </div>
+              <div>
+                <h5 class="card-title">IPCC — Panel Intergubernamental</h5>
+                <p class="card-text mb-3">
+                  Informes de evaluación del IPCC, la fuente más autorizada sobre la ciencia
+                  del cambio climático a nivel global.
+                </p>
+                <a href="https://www.ipcc.ch/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: marco legal del Acuerdo de París y compromisos nacionales -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-amber" style="flex-shrink:0;">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Convención Marco de la ONU (UNFCCC)</h5>
+                <p class="card-text mb-3">
+                  Marco legal internacional para la acción climática, incluyendo el Acuerdo
+                  de París y los compromisos nacionales.
+                </p>
+                <a href="https://unfccc.int/es" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: programa ambiental de la ONU con reportes de estado del clima -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-teal" style="flex-shrink:0;">
+                <i class="bi bi-leaf-fill"></i>
+              </div>
+              <div>
+                <h5 class="card-title">PNUMA — Programa Ambiental ONU</h5>
+                <p class="card-text mb-3">
+                  Programa de la ONU para el Medio Ambiente con reportes sobre el estado del
+                  clima y proyectos ambientales globales.
+                </p>
+                <a href="https://www.unep.org/es" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /organizaciones internacionales -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Instituciones científicas con datos abiertos — 4 tarjetas -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Instituciones científicas con datos abiertos</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: datos satelitales y visualizaciones de la NASA -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-green" style="flex-shrink:0;">
+                <i class="bi bi-broadcast-pin"></i>
+              </div>
+              <div>
+                <h5 class="card-title">NASA Climate Change</h5>
+                <p class="card-text mb-3">
+                  Portal de la NASA con datos satelitales, visualizaciones interactivas y
+                  explicaciones científicas rigurosas sobre el cambio climático.
+                </p>
+                <a href="https://climate.nasa.gov/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: datos climáticos y recursos educativos de la NOAA -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-teal" style="flex-shrink:0;">
+                <i class="bi bi-bar-chart-line-fill"></i>
+              </div>
+              <div>
+                <h5 class="card-title">NOAA — Climate.gov</h5>
+                <p class="card-text mb-3">
+                  Datos climáticos, noticias y recursos educativos de la Administración
+                  Nacional Oceánica y Atmosférica de Estados Unidos.
+                </p>
+                <a href="https://www.climate.gov/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: registro histórico HadCRUT desde 1850 -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-amber" style="flex-shrink:0;">
+                <i class="bi bi-cloud-sun-fill"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Centro Hadley (Met Office)</h5>
+                <p class="card-text mb-3">
+                  Centro británico de investigación climática que mantiene el registro histórico
+                  de temperaturas globales HadCRUT desde 1850.
+                </p>
+                <a href="https://weather.metoffice.gov.uk/climate/met-office-hadley-centre/index"
+                  target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: atribución científica de eventos climáticos extremos -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-green" style="flex-shrink:0;">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <div>
+                <h5 class="card-title">World Weather Attribution</h5>
+                <p class="card-text mb-3">
+                  Análisis científicos rápidos que cuantifican la conexión entre eventos
+                  climáticos extremos y el cambio climático de origen humano.
+                </p>
+                <a href="https://www.worldweatherattribution.org/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /instituciones científicas -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Recursos educativos y de divulgación — 4 tarjetas -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Recursos educativos y de divulgación científica</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: desmontaje de mitos sobre el cambio climático -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-teal" style="flex-shrink:0;">
+                <i class="bi bi-patch-question-fill"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Skeptical Science</h5>
+                <p class="card-text mb-3">
+                  Explicaciones científicas accesibles y respuestas documentadas a los mitos
+                  y desinformación más comunes sobre el cambio climático.
+                </p>
+                <a href="https://skepticalscience.com/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: noticias y análisis con datos visuales de calidad -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-amber" style="flex-shrink:0;">
+                <i class="bi bi-newspaper"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Climate Central</h5>
+                <p class="card-text mb-3">
+                  Noticias y análisis científicos sobre el cambio climático y sus impactos
+                  locales, con datos visuales de alta calidad.
+                </p>
+                <a href="https://www.climatecentral.org/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: divulgación académica orientada a la acción pública -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-green" style="flex-shrink:0;">
+                <i class="bi bi-mortarboard-fill"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Yale Climate Connections</h5>
+                <p class="card-text mb-3">
+                  Comunicación científica accesible del Programa Yale sobre Cambio Climático,
+                  orientada a la educación y la acción pública.
+                </p>
+                <a href="https://yaleclimateconnections.org/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: análisis rigurosos de política energética y emisiones -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="d-flex align-items-start gap-3">
+              <div class="card-icon icon-teal" style="flex-shrink:0;">
+                <i class="bi bi-file-earmark-bar-graph"></i>
+              </div>
+              <div>
+                <h5 class="card-title">Carbon Brief</h5>
+                <p class="card-text mb-3">
+                  Análisis claros, rigurosos y basados en ciencia sobre política energética,
+                  emisiones y cambio climático.
+                </p>
+                <a href="https://www.carbonbrief.org/" target="_blank" rel="noopener"
+                  class="btn btn-primary btn-sm">
+                  <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /recursos educativos -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Reportes clave en accordion — data-bs-parent fuerza un solo item abierto a la vez -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Reportes y documentos clave</h2>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-9">
+        <div class="accordion" id="accordionDocs">
+
+          <!-- Informe más reciente y completo del IPCC -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#doc1">
+                <i class="bi bi-file-earmark-text me-2 text-accent"></i>
+                Sexto Informe de Evaluación del IPCC (AR6) — 2021-2023
+              </button>
+            </h2>
+            <div id="doc1" class="accordion-collapse collapse" data-bs-parent="#accordionDocs">
+              <div class="accordion-body">
+                El informe más reciente y completo sobre la ciencia del cambio climático, sus
+                impactos y opciones de respuesta. Incluye contribuciones de tres grupos de trabajo:
+                bases físicas, impactos y adaptación, y mitigación.
+                <br><br>
+                <strong style="color:var(--text-primary)">Hallazgo clave:</strong>
+                Es inequívoco que la actividad humana ha calentado el planeta. Muchos cambios
+                son irreversibles durante siglos o milenios.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tratado internacional que fija el objetivo de los 1.5°C y 2°C -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#doc2">
+                <i class="bi bi-file-earmark-text me-2 text-accent"></i>
+                Acuerdo de París (2015)
+              </button>
+            </h2>
+            <div id="doc2" class="accordion-collapse collapse" data-bs-parent="#accordionDocs">
+              <div class="accordion-body">
+                Tratado internacional jurídicamente vinculante adoptado por 196 partes en la COP21.
+                Su objetivo es limitar el calentamiento global muy por debajo de 2°C, preferiblemente
+                a 1.5°C respecto a niveles preindustriales.
+                <br><br>
+                <strong style="color:var(--text-primary)">Mecanismos principales:</strong>
+                Contribuciones Determinadas Nacionalmente (NDC), marco de transparencia y rendición
+                de cuentas, y financiamiento climático.
+              </div>
+            </div>
+          </div>
+
+          <!-- Evaluación especial sobre la diferencia entre 1.5°C y 2°C de calentamiento -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#doc3">
+                <i class="bi bi-file-earmark-text me-2 text-accent"></i>
+                Informe Especial IPCC sobre 1.5°C (2018)
+              </button>
+            </h2>
+            <div id="doc3" class="accordion-collapse collapse" data-bs-parent="#accordionDocs">
+              <div class="accordion-body">
+                Evaluación especial sobre los impactos del calentamiento de 1.5°C y las
+                trayectorias de emisión necesarias para alcanzarlo.
+                <br><br>
+                <strong style="color:var(--text-primary)">Conclusión clave:</strong>
+                Limitar el calentamiento a 1.5°C requiere cambios rápidos, de gran alcance y
+                sin precedentes en todos los sectores. Cada fracción de grado adicional
+                importa significativamente.
+              </div>
+            </div>
+          </div>
+
+          <!-- Reporte anual que mide la brecha entre emisiones reales y objetivos del Acuerdo de París -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#doc4">
+                <i class="bi bi-file-earmark-text me-2 text-accent"></i>
+                Emissions Gap Report — PNUMA (publicación anual)
+              </button>
+            </h2>
+            <div id="doc4" class="accordion-collapse collapse" data-bs-parent="#accordionDocs">
+              <div class="accordion-body">
+                Reporte anual que evalúa la brecha entre las emisiones proyectadas y los niveles
+                requeridos para cumplir los objetivos del Acuerdo de París.
+                <br><br>
+                <strong style="color:var(--text-primary)">Actualización reciente:</strong>
+                Las emisiones globales continúan aumentando y la ventana para limitar el
+                calentamiento a 1.5°C se cierra de forma acelerada.
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+      </div>
+    </div><!-- /reportes clave -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Bases de datos — 4 stat-cards con layout alineado a la izquierda -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Bases de datos y plataformas</h2>
+    </div>
+
+    <!-- col-md-6 col-lg-3: 4 columnas en desktop, 2 en tablet, 1 en móvil -->
+    <div class="row g-3 mb-5">
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="stat-card" style="text-align:left; padding:1.25rem; min-height:auto;">
+          <div class="card-icon icon-teal mb-2" style="width:36px;height:36px;font-size:0.95rem;">
+            <i class="bi bi-database-fill"></i>
+          </div>
+          <h6 style="color:var(--text-primary);font-weight:600;font-size:0.9rem;">Climate Data Store</h6>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">
+            Datos satelitales europeos de acceso libre (Copernicus)
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="stat-card" style="text-align:left; padding:1.25rem; min-height:auto;">
+          <div class="card-icon icon-green mb-2" style="width:36px;height:36px;font-size:0.95rem;">
+            <i class="bi bi-pie-chart-fill"></i>
+          </div>
+          <h6 style="color:var(--text-primary);font-weight:600;font-size:0.9rem;">Global Carbon Atlas</h6>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">
+            Visualización interactiva de emisiones de carbono globales
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="stat-card" style="text-align:left; padding:1.25rem; min-height:auto;">
+          <div class="card-icon icon-amber mb-2" style="width:36px;height:36px;font-size:0.95rem;">
+            <i class="bi bi-graph-up"></i>
+          </div>
+          <h6 style="color:var(--text-primary);font-weight:600;font-size:0.9rem;">Our World in Data</h6>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">
+            Gráficos y análisis sobre el cambio climático
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 fade-in-up">
+        <div class="stat-card" style="text-align:left; padding:1.25rem; min-height:auto;">
+          <div class="card-icon icon-teal mb-2" style="width:36px;height:36px;font-size:0.95rem;">
+            <i class="bi bi-map-fill"></i>
+          </div>
+          <h6 style="color:var(--text-primary);font-weight:600;font-size:0.9rem;">Climate Watch (WRI)</h6>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin:0;">
+            Datos sobre emisiones y compromisos nacionales
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /bases de datos -->
+
+
+    <!-- Nota final sobre criterios de selección de fuentes -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="section-block text-center">
+          <i class="bi bi-info-circle text-accent fs-4 mb-3 d-block"></i>
+          <h5 style="color:var(--text-primary);">Nota sobre las fuentes</h5>
+          <p class="mb-0">
+            Todas las referencias listadas representan fuentes científicas revisadas por pares
+            o instituciones reconocidas internacionalmente. Se recomienda siempre consultar
+            múltiples fuentes y priorizar la literatura científica para obtener información
+            precisa sobre el cambio climático.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand"><i class="bi bi-globe-americas"></i>Cambio Climático</div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© 2025 — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    // Aplica el tema recibido, lo guarda y actualiza el ícono del botón
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+
+    // Sincroniza el ícono con el tema que ya aplicó el script del head
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Alterna entre dark y light al hacer clic
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>

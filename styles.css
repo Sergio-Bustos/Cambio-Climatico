@@ -1,0 +1,699 @@
+/* ============================================================
+   CAMBIO CLIMÁTICO — Design System
+   Tema oscuro por defecto, con soporte para modo claro.
+   Tipografías: Playfair Display (títulos) + DM Sans (cuerpo)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+
+/* ── Variables globales ─────────────────────────────────── */
+:root {
+  /* Fondos del tema oscuro, de más oscuro a más claro */
+  --bg-base:       #0d1117;
+  --bg-surface:    #161c26;
+  --bg-card:       #1c2333;
+  --bg-card-hover: #212d40;
+
+  /* Bordes: el segundo con tono verde para hovers */
+  --border:        rgba(255,255,255,0.07);
+  --border-accent: rgba(134,179,74,0.35);
+
+  /* Jerarquía de texto: primary > secondary > muted */
+  --text-primary:  #e8edf3;
+  --text-secondary:#8fa3b8;
+  --text-muted:    #4d6276;
+
+  /* Paleta de acentos */
+  --accent-green:  #86b34a;
+  --accent-teal:   #38a89d;
+  --accent-amber:  #c8922a;
+
+  /* Navbar con efecto frosted-glass */
+  --nav-bg:        rgba(13,17,23,0.92);
+  --nav-border:    rgba(255,255,255,0.06);
+
+  /* Sombras escalonadas por nivel de elevación */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
+
+  /* Radios de borde consistentes en toda la UI */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Curva de transición reutilizable */
+  --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+
+/* ── Tema claro ─────────────────────────────────────────── */
+/* Solo se sobreescriben las variables necesarias; el resto del CSS no cambia */
+[data-theme="light"] {
+  --bg-base:       #f4f6f8;
+  --bg-surface:    #eaecef;
+  --bg-card:       #ffffff;
+  --bg-card-hover: #f7f9fb;
+
+  --border:        rgba(0,0,0,0.08);
+  --border-accent: rgba(70,130,60,0.3);
+
+  --text-primary:  #1a2332;
+  --text-secondary:#475569;
+  --text-muted:    #94a3b8;
+
+  /* Acentos más oscuros para mantener contraste sobre fondo claro */
+  --accent-green:  #3a7d2e;
+  --accent-teal:   #1f7a73;
+  --accent-amber:  #9a6b10;
+
+  --nav-bg:        rgba(244,246,248,0.95);
+  --nav-border:    rgba(0,0,0,0.08);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+
+/* ── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scroll suave al navegar por anclas internas */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  /* Transición suave al cambiar de tema */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ── Navegación ─────────────────────────────────────────── */
+.navbar {
+  background-color: var(--nav-bg) !important;
+  border-bottom: 1px solid var(--nav-border);
+  /* Efecto frosted-glass: borroso el contenido detrás */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.85rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand i { color: var(--accent-green); font-size: 1.1rem; }
+.navbar-brand:hover { color: var(--accent-green) !important; }
+
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-secondary) !important;
+  padding: 0.4rem 0.85rem !important;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.01em;
+  transition: color var(--transition), background-color var(--transition);
+}
+
+/* Fondo verde muy sutil en hover y en el link de la página actual */
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary) !important;
+  background-color: rgba(134,179,74,0.08);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.6rem;
+}
+
+/* En tema oscuro el ícono de la hamburguesa se aclara */
+.navbar-toggler-icon { filter: var(--toggler-filter, invert(0.7)); }
+[data-theme="light"] .navbar-toggler-icon { filter: none; }
+
+
+/* ── Dropdown ──────────────────────────────────────────── */
+.dropdown-menu {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 0.4rem;
+  min-width: 200px;
+}
+
+.dropdown-item {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.dropdown-item:hover {
+  background-color: rgba(134,179,74,0.1);
+  color: var(--accent-green);
+}
+
+
+/* ── Botón de tema (sol / luna) ────────────────────────── */
+.btn-theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.65rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-theme-toggle:hover {
+  background-color: rgba(134,179,74,0.1);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+
+/* ── Tipografía ────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* Tamaños fluidos con clamp: escalan entre el mínimo y el máximo */
+h1 { font-size: clamp(2rem, 4vw, 3rem);       font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem);   font-weight: 700; }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 600; }
+h4 { font-size: 1.15rem; font-weight: 600; }
+h5 { font-size: 1rem;    font-weight: 600; }
+
+/* Párrafos en gris secundario para no competir con los títulos */
+p { color: var(--text-secondary); }
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* Etiqueta pequeña en mayúsculas que precede a un título de sección */
+.section-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: 0.75rem;
+}
+
+/* Título con línea decorativa centrada debajo */
+.heading-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.6rem;
+}
+
+/* La línea decorativa como pseudo-elemento centrado */
+.heading-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-teal));
+  border-radius: 2px;
+}
+
+.text-accent         { color: var(--accent-green) !important; }
+.text-body-secondary { color: var(--text-secondary) !important; }
+.text-muted-custom   { color: var(--text-muted) !important; }
+
+
+/* ── Layout ────────────────────────────────────────────── */
+.container { max-width: 1140px; }
+section.py-section { padding: 4rem 0; }
+
+
+/* ── Tarjetas ──────────────────────────────────────────── */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+/* Elevación sutil al hacer hover */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--border-accent);
+}
+
+.card-body  { padding: 1.75rem; }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+/* Borde izquierdo de color según variante */
+.card-accent-green  { border-left: 3px solid var(--accent-green) !important; }
+.card-accent-teal   { border-left: 3px solid var(--accent-teal)  !important; }
+.card-accent-amber  { border-left: 3px solid var(--accent-amber) !important; }
+
+/* Cuadrado redondeado que contiene el ícono de la tarjeta */
+.card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+/* Fondos semitransparentes para cada color de ícono */
+.icon-green  { background: rgba(134,179,74,0.12); color: var(--accent-green); }
+.icon-teal   { background: rgba(56,168,157,0.12);  color: var(--accent-teal);  }
+.icon-amber  { background: rgba(200,146,42,0.12);  color: var(--accent-amber); }
+
+
+/* ── Tarjetas de estadísticas ──────────────────────────── */
+/* Altura mínima fija para que todas las stat-cards sean del mismo tamaño */
+.stat-card {
+  padding: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: border-color var(--transition);
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card:hover { border-color: var(--border-accent); }
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-green);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+
+/* ── Carrusel ──────────────────────────────────────────── */
+.carousel {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* Altura fija y oscurecimiento para que el texto del caption sea legible */
+.carousel-item img {
+  height: 460px;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transition: filter 0.3s ease;
+}
+
+.carousel-item:hover img { filter: brightness(0.7); }
+
+/* Degradado de abajo a arriba sobre la imagen para el caption */
+.carousel-caption {
+  background: linear-gradient(
+    0deg,
+    rgba(13,17,23,0.95) 0%,
+    rgba(13,17,23,0.5)  100%
+  );
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Padding inferior generoso para que los indicadores no tapen el texto */
+  padding: 2rem 2.5rem 3.5rem !important;
+  text-align: left;
+  border-radius: 0;
+}
+
+.carousel-caption h5 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.carousel-caption p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* Indicadores reposicionados encima del caption */
+.carousel-indicators {
+  bottom: 1rem !important;
+  z-index: 20;
+  margin: 0;
+  padding: 0;
+}
+
+/* Punto inactivo: círculo pequeño semitransparente */
+.carousel-indicators button {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.4);
+  border: none;
+}
+
+/* Punto activo: se alarga como pastilla y se pone en verde */
+.carousel-indicators button.active {
+  background-color: var(--accent-green);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* Flechas de navegación: círculos semitransparentes centrados verticalmente */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 44px;
+  height: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(13,17,23,0.7);
+  border-radius: 50%;
+  margin: 0 1rem;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ── Accordion ─────────────────────────────────────────── */
+.accordion-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.accordion-button {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 1.1rem 1.4rem;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Cuando el item está abierto, el texto del botón se pone en verde */
+.accordion-button:not(.collapsed) {
+  color: var(--accent-green) !important;
+  background-color: rgba(134,179,74,0.06) !important;
+}
+
+/* La flechita del accordion se aclara para el tema oscuro */
+.accordion-button::after { filter: invert(0.5); }
+[data-theme="light"] .accordion-button::after { filter: none; }
+
+.accordion-body {
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  padding: 0 1.4rem 1.4rem;
+}
+
+
+/* ── Botones ───────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent-green);
+  border: none;
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
+  transition: all var(--transition);
+}
+
+/* En hover cambia a teal y sube ligeramente */
+.btn-primary:hover {
+  background: var(--accent-teal);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(56,168,157,0.3);
+}
+
+.btn-outline-secondary {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.btn-outline-secondary:hover {
+  background: rgba(134,179,74,0.08);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+
+/* ── Hero / Banner ─────────────────────────────────────── */
+/* Franja de introducción en la parte superior de cada página */
+.hero-band {
+  background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-card) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 4.5rem 0;
+}
+
+
+/* ── Separador horizontal ──────────────────────────────── */
+/* Línea que se desvanece en los extremos */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 3rem 0;
+}
+
+
+/* ── Bloque de sección destacada ───────────────────────── */
+.section-block {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+
+/* ── Links ─────────────────────────────────────────────── */
+a {
+  color: var(--accent-green);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: var(--accent-teal); }
+
+
+/* ── Lista con estilo propio ───────────────────────────── */
+/* Quitamos el bullet del navegador y usamos un punto verde con ::before */
+ul.styled-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.styled-list li {
+  padding: 0.55rem 0;
+  padding-left: 1.8rem;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+ul.styled-list li:last-child { border-bottom: none; }
+
+/* El punto verde posicionado a la izquierda de cada item */
+ul.styled-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+}
+
+
+/* ── Bloque Call-to-Action ─────────────────────────────── */
+/* Caja resaltada con borde verde y fondo con degradado muy sutil */
+.cta-block {
+  background: linear-gradient(
+    135deg,
+    rgba(134,179,74,0.08) 0%,
+    rgba(56,168,157,0.06)  100%
+  );
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  text-align: center;
+}
+
+
+/* ── Footer ─────────────────────────────────────────────── */
+footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  margin-top: 5rem;
+}
+
+footer p { color: var(--text-muted); font-size: 0.85rem; }
+
+footer .footer-brand {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+footer .footer-brand i { color: var(--accent-green); }
+
+
+/* ── Cabecera de página interna ────────────────────────── */
+.page-header { padding: 3.5rem 0 2.5rem; text-align: center; }
+.page-header .section-eyebrow { margin-bottom: 0.6rem; }
+.page-header p.lead { max-width: 640px; margin: 1rem auto 0; }
+
+
+/* ── Animaciones de entrada ────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up { animation: fadeInUp 0.5s ease-out both; }
+
+/* Retrasos escalonados para que cada tarjeta entre después de la anterior */
+.fade-in-up:nth-child(1) { animation-delay: 0.05s; }
+.fade-in-up:nth-child(2) { animation-delay: 0.12s; }
+.fade-in-up:nth-child(3) { animation-delay: 0.19s; }
+.fade-in-up:nth-child(4) { animation-delay: 0.26s; }
+
+
+/* ── Responsive: tablets y móviles (< 768px) ──────────── */
+@media (max-width: 768px) {
+
+  .carousel-item img { height: 300px; }
+
+  /* Padding inferior reducido para que los indicadores no solapen el texto */
+  .carousel-caption { padding: 1.25rem 1.25rem 3rem !important; }
+  .carousel-caption h5 { font-size: 1.05rem; }
+  .carousel-caption p  { font-size: 0.8rem; }
+
+  .cta-block  { padding: 2rem; }
+  .card-body  { padding: 1.25rem; }
+  .page-header { padding: 2.5rem 0 1.5rem; }
+
+  .stat-card   { min-height: 110px; }
+  .stat-number { font-size: 1.6rem; }
+}
+
+
+/* ── Responsive: móvil pequeño (< 480px) ──────────────── */
+@media (max-width: 480px) {
+
+  .hero-band { padding: 3rem 0; }
+  .carousel-item img { height: 240px; }
+  .stat-card { min-height: 100px; }
+}
+
+
+/* ── Utilidades de fondo ───────────────────────────────── */
+.bg-surface    { background-color: var(--bg-surface); }
+.bg-card       { background-color: var(--bg-card); }
+.shadow-custom { box-shadow: var(--shadow-md) !important; }

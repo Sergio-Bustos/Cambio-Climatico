@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" inicial; el script del head lo sobreescribe con el valor guardado -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consecuencias — Cambio Climático</title>
+
+  <!-- Bootstrap 5 CSS y JS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap JS — necesario para el menú colapsable y el dropdown -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts — Playfair Display para títulos, DM Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos propios del sitio -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Aplica el tema guardado antes de que el CSS renderice, evita el parpadeo claro/oscuro -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN — "Consecuencias" marcado como activo -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo con enlace a la portada -->
+      <a class="navbar-brand" href="index.html"><i class="bi bi-globe-americas"></i>Cambio Climático</a>
+
+      <!-- Botón hamburguesa para móvil, abre el menú #navMain -->
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="bi bi-list" style="font-size:1.4rem; color:var(--text-secondary);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="quees.html"><i class="bi bi-info-circle me-1"></i>¿Qué es?</a></li>
+          <li class="nav-item"><a class="nav-link" href="discusion.html"><i class="bi bi-globe2 me-1"></i>¿Qué se ha hecho?</a></li>
+          <li class="nav-item"><a class="nav-link" href="debemoshacer.html"><i class="bi bi-person-check me-1"></i>¿Qué debemos hacer?</a></li>
+          <!-- Página actual marcada como active -->
+          <li class="nav-item"><a class="nav-link active" href="resultados.html"><i class="bi bi-activity me-1"></i>Consecuencias</a></li>
+          <!-- Dropdown con páginas secundarias -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-three-dots me-1"></i>Más información</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="metodologia.html"><i class="bi bi-flask"></i> Metodología y estudios</a></li>
+              <li><a class="dropdown-item" href="referencias.html"><i class="bi bi-journals"></i> Referencias</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Botón para alternar entre tema claro y oscuro -->
+        <button class="btn-theme-toggle ms-2" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CABECERA DE PÁGINA — banda con título y descripción introductoria -->
+  <div class="hero-band">
+    <div class="container page-header">
+      <h1 class="heading-underline">Consecuencias del cambio climático</h1>
+      <p class="lead">
+        El cambio climático ya no es una amenaza futura. Sus consecuencias son reales, presentes
+        y están afectando a millones de personas y ecosistemas en todo el planeta.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5 mb-5">
+
+
+    <!-- Impactos ambientales — 4 tarjetas en grid 2×2 -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Impactos ambientales</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: calentamiento global y sus efectos en cadena -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-thermometer-high"></i></div>
+            <h5 class="card-title">Aumento de temperaturas</h5>
+            <p class="card-text">
+              Las temperaturas globales han aumentado aproximadamente 1.1°C desde la era preindustrial.
+              Aunque parece un valor modesto, tiene efectos devastadores: olas de calor más frecuentes
+              e intensas, derretimiento acelerado de glaciares y alteración de patrones climáticos
+              establecidos durante milenios.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: inundaciones costeras y desplazamiento por el mar -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-water"></i></div>
+            <h5 class="card-title">Aumento del nivel del mar</h5>
+            <p class="card-text">
+              El nivel del mar ha subido aproximadamente 20 cm en el último siglo y la tasa se
+              acelera. Para 2100, millones de personas podrían verse desplazadas por la inundación
+              de áreas costeras, con pérdidas económicas incalculables para comunidades insulares
+              y deltas de ríos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: retroceso glaciar y alteración de corrientes oceánicas -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-snow2"></i></div>
+            <h5 class="card-title">Deshielo acelerado</h5>
+            <p class="card-text">
+              Los glaciares de montaña retroceden a ritmo alarmante y el hielo marino del Ártico
+              desaparece. La capa de hielo de Groenlandia pierde miles de millones de toneladas
+              al año. Esto altera corrientes oceánicas y afecta gravemente los ecosistemas polares.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: mayor frecuencia e intensidad de desastres naturales -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-wind"></i></div>
+            <h5 class="card-title">Eventos climáticos extremos</h5>
+            <p class="card-text">
+              Huracanes más intensos, sequías prolongadas, inundaciones devastadoras e incendios
+              forestales sin precedentes se han vuelto más frecuentes. Generan crisis humanitarias,
+              desplazamientos masivos y destrucción de infraestructura en todo el mundo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /impactos ambientales -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Impactos en ecosistemas — 3 tarjetas -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Impactos en ecosistemas</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: CO₂ absorbido por el océano acidifica el agua y amenaza los arrecifes -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-droplet-fill"></i></div>
+            <h5 class="card-title">Acidificación de océanos</h5>
+            <p class="card-text">
+              Los océanos absorben el 30% del CO₂ atmosférico, causando su acidificación.
+              Esto amenaza los arrecifes de coral, hogar del 25% de la vida marina, y afecta
+              a organismos con conchas o esqueletos calcáreos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: ritmo de adaptación insuficiente para muchas especies -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-bug-fill"></i></div>
+            <h5 class="card-title">Pérdida de biodiversidad</h5>
+            <p class="card-text">
+              Muchas especies no pueden adaptarse con la velocidad necesaria. Se estima que
+              hasta un millón de especies están en riesgo de extinción por los cambios en
+              temperatura, precipitación y hábitats.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: bosques que pasan de sumideros a emisores de carbono -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-tree-fill"></i></div>
+            <h5 class="card-title">Alteración de bosques</h5>
+            <p class="card-text">
+              Sequías, plagas y mayor frecuencia de incendios forestales reducen la capacidad
+              de absorción de CO₂ de los bosques, creando un círculo vicioso de calentamiento
+              que se retroalimenta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ecosistemas -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Impactos sociales y económicos — 4 tarjetas en grid 2×2 -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Impactos sociales y económicos</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: amenaza a los cultivos básicos por eventos climáticos -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-flower1"></i></div>
+            <h5 class="card-title">Seguridad alimentaria</h5>
+            <p class="card-text">
+              Las sequías, inundaciones y cambios en los patrones de lluvia afectan la producción
+              agrícola global. Los cambios en las estaciones y la disponibilidad hídrica ponen en
+              riesgo los cultivos básicos, especialmente en regiones vulnerables.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: estrés hídrico agravado por precipitaciones alteradas -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-droplet-half"></i></div>
+            <h5 class="card-title">Escasez de agua</h5>
+            <p class="card-text">
+              Más de 2,000 millones de personas viven ya en regiones con estrés hídrico. El cambio
+              climático intensifica este problema al alterar las precipitaciones, reducir el agua
+              glaciar y aumentar la evaporación.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: enfermedades, calor extremo y salud mental -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-heart-pulse-fill"></i></div>
+            <h5 class="card-title">Salud pública</h5>
+            <p class="card-text">
+              Olas de calor mortales, expansión de enfermedades vectoriales como malaria y dengue
+              a nuevas regiones, mayor contaminación del aire y problemas de salud mental
+              derivados de desastres climáticos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: migraciones forzadas por habitabilidad comprometida -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-house-slash-fill"></i></div>
+            <h5 class="card-title">Desplazamiento de poblaciones</h5>
+            <p class="card-text">
+              Se estima que para 2050, hasta 200 millones de personas podrían verse obligadas a
+              migrar por el aumento del nivel del mar, sequías o desertificación. Esto genera
+              presión sobre recursos y puede provocar tensiones sociales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /sociales y económicos -->
+
+
+    <!-- Call-to-action — enlaza a la página de acciones personales -->
+    <div class="cta-block">
+      <h3 class="mb-3">La urgencia de actuar</h3>
+      <p class="lead mb-4" style="max-width:520px; margin:0 auto 1.5rem;">
+        Las consecuencias son reales y cada vez más graves, pero aún estamos a tiempo de
+        limitar los daños más catastróficos. Cada acción cuenta, cada decisión importa.
+      </p>
+      <a href="debemoshacer.html" class="btn btn-primary">
+        <i class="bi bi-arrow-right me-2"></i>Descubre qué puedes hacer
+      </a>
+    </div>
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand"><i class="bi bi-globe-americas"></i>Cambio Climático</div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© 2025 — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    // Aplica el tema recibido, lo guarda y actualiza el ícono del botón
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+
+    // Sincroniza el ícono con el tema que ya aplicó el script del head
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Alterna entre dark y light al hacer clic
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>

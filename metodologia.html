@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" inicial; el script del head lo sobreescribe con el valor guardado -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metodología — Cambio Climático</title>
+
+  <!-- Bootstrap 5 CSS y JS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap JS — necesario para el menú colapsable y el dropdown -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts — Playfair Display para títulos, DM Sans para cuerpo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos propios del sitio -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Aplica el tema guardado antes de que el CSS renderice, evita el parpadeo claro/oscuro -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN — dropdown "Más información" marcado como activo por ser página hija -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo con enlace a la portada -->
+      <a class="navbar-brand" href="index.html"><i class="bi bi-globe-americas"></i>Cambio Climático</a>
+
+      <!-- Botón hamburguesa para móvil, abre el menú #navMain -->
+      <button class="navbar-toggler border-0" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMain">
+        <i class="bi bi-list" style="font-size:1.4rem; color:var(--text-secondary);"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="quees.html"><i class="bi bi-info-circle me-1"></i>¿Qué es?</a></li>
+          <li class="nav-item"><a class="nav-link" href="discusion.html"><i class="bi bi-globe2 me-1"></i>¿Qué se ha hecho?</a></li>
+          <li class="nav-item"><a class="nav-link" href="debemoshacer.html"><i class="bi bi-person-check me-1"></i>¿Qué debemos hacer?</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultados.html"><i class="bi bi-activity me-1"></i>Consecuencias</a></li>
+          <!-- Dropdown activo porque esta página es hija de "Más información" -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-three-dots me-1"></i>Más información</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="metodologia.html"><i class="bi bi-flask"></i> Metodología y estudios</a></li>
+              <li><a class="dropdown-item" href="referencias.html"><i class="bi bi-journals"></i> Referencias</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Botón para alternar entre tema claro y oscuro -->
+        <button class="btn-theme-toggle ms-2" id="themeToggle"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- CABECERA DE PÁGINA — banda con título y descripción introductoria -->
+  <div class="hero-band">
+    <div class="container page-header">
+      <h1 class="heading-underline">Metodología y estudios científicos</h1>
+      <p class="lead">
+        La ciencia climática se basa en décadas de observaciones sistemáticas, modelos
+        computacionales avanzados y revisión rigurosa por pares. Aquí exploramos las
+        herramientas y métodos que la sustentan.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5 mb-5">
+
+
+    <!-- Métodos de observación — 4 tarjetas en grid 2×2 -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Métodos de observación y medición</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: satélites y observación desde el espacio -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-broadcast"></i></div>
+            <h5 class="card-title">Satélites y observación remota</h5>
+            <p class="card-text">
+              Los satélites proporcionan datos cruciales sobre temperatura superficial terrestre
+              y oceánica, extensión del hielo marino, nivel del mar y concentración de GEI.
+              Programas como GRACE, ICESat (NASA) y Copernicus (ESA) monitorean el planeta
+              continuamente desde el espacio.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: red terrestre y marina de estaciones -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-thermometer-sun"></i></div>
+            <h5 class="card-title">Estaciones meteorológicas</h5>
+            <p class="card-text">
+              Miles de estaciones terrestres y marinas registran temperatura, precipitación y
+              otros parámetros. Algunas tienen registros que superan los 150 años, proporcionando
+              datos históricos invaluables para identificar tendencias a largo plazo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: medición oceánica con boyas y mareógrafos -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-tsunami"></i></div>
+            <h5 class="card-title">Boyas oceánicas y mareógrafos</h5>
+            <p class="card-text">
+              Una red global de boyas mide temperatura, salinidad y corrientes marinas. Los
+              mareógrafos registran el nivel del mar con alta precisión. Estos datos son
+              esenciales para comprender cómo los océanos absorben calor y CO₂.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: registro histórico del clima en hielo y sedimentos -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-clock-history"></i></div>
+            <h5 class="card-title">Núcleos de hielo y sedimentos</h5>
+            <p class="card-text">
+              Los científicos extraen cilindros de hielo de glaciares con burbujas de aire
+              atrapadas hace cientos de miles de años. Estas "cápsulas del tiempo" revelan
+              concentraciones pasadas de CO₂ y temperaturas, permitiendo comparaciones
+              históricas únicas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /observación -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Modelos climáticos — 3 tarjetas con descripción introductoria -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Modelos climáticos: cómo se proyecta el futuro</h2>
+      <p class="lead mt-3 mx-auto" style="max-width:640px;">
+        Los modelos climáticos son herramientas matemáticas complejas que simulan el sistema
+        climático terrestre. Integran física, química y biología para proyectar escenarios futuros.
+      </p>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: modelos globales de circulación atmosférica y oceánica -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-cpu-fill"></i></div>
+            <h5 class="card-title">Modelos de Circulación General (GCM)</h5>
+            <p class="card-text">
+              Dividen la atmósfera y los océanos en una red tridimensional de celdas y calculan
+              cómo la energía y los gases se mueven entre ellas. Se ejecutan en supercomputadoras
+              y pueden simular cientos de años de clima.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: modelos de alta resolución para áreas específicas -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-geo-alt-fill"></i></div>
+            <h5 class="card-title">Modelos regionales</h5>
+            <p class="card-text">
+              Se enfocan en áreas geográficas específicas con mayor resolución, generando
+              proyecciones detalladas del clima futuro a nivel local. Son especialmente útiles
+              para la planificación de adaptación regional.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: modelos que integran todos los componentes del sistema climático -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-arrow-repeat"></i></div>
+            <h5 class="card-title">Modelos del sistema terrestre</h5>
+            <p class="card-text">
+              Los más avanzados: incluyen atmósfera, océanos, ciclos de carbono, ecosistemas y
+              capas de hielo. Simulan interacciones complejas entre todos los componentes
+              del sistema climático.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /modelos climáticos -->
+
+
+    <div class="divider"></div>
+
+
+    <!-- Organizaciones de investigación — 4 tarjetas en grid 2×2 -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">Organizaciones que lideran la investigación climática</h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: organismo que sintetiza el consenso científico global -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-building"></i></div>
+            <h5 class="card-title">IPCC — Panel Intergubernamental sobre Cambio Climático</h5>
+            <p class="card-text">
+              Creado en 1988, el IPCC evalúa la literatura científica existente (no produce
+              investigación propia) y publica informes de evaluación cada 5-7 años que representan
+              el consenso científico global. Son la base de las decisiones políticas internacionales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: agencias espaciales con bases de datos climáticos abiertos -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-stars"></i></div>
+            <h5 class="card-title">NASA y NOAA</h5>
+            <p class="card-text">
+              Líderes mundiales en observación y modelado climático. Operan satélites clave y
+              mantienen bases de datos climáticos globales de acceso público que cubren décadas
+              de mediciones continuas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: custodios del registro histórico de temperatura HadCRUT -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-bank"></i></div>
+            <h5 class="card-title">Centro Hadley y Universidad de East Anglia</h5>
+            <p class="card-text">
+              Mantienen el conjunto de datos de temperatura global HadCRUT, que se remonta a 1850.
+              Este registro histórico es fundamental para rastrear y documentar el calentamiento
+              global observado.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: coordinación internacional de modelos climáticos -->
+      <div class="col-md-6 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-diagram-3-fill"></i></div>
+            <h5 class="card-title">World Climate Research Programme (WCRP)</h5>
+            <p class="card-text">
+              Coordina la investigación climática internacional y organiza los proyectos de
+              intercomparación de modelos (CMIP) que evalúan y mejoran los modelos climáticos
+              globales de forma colaborativa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /organizaciones -->
+
+
+    <!-- Bloque de consenso científico — styled-list con bullets verdes -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8">
+        <!-- text-align:left para que la lista quede alineada dentro del cta-block centrado -->
+        <div class="cta-block" style="text-align:left;">
+          <h3 class="mb-3">El consenso científico</h3>
+          <p class="mb-3">
+            Más del 97% de los científicos climáticos activos coinciden en que el cambio climático
+            actual está causado por actividades humanas. Este consenso se basa en múltiples líneas
+            de evidencia independientes:
+          </p>
+          <ul class="styled-list">
+            <li>Aumento medido de CO₂ atmosférico correlacionado con emisiones humanas</li>
+            <li>Calentamiento observado en múltiples conjuntos de datos independientes</li>
+            <li>Patrón de calentamiento consistente con el efecto invernadero aumentado</li>
+            <li>Modelos que predicen correctamente los patrones observados al incluir forzamiento humano</li>
+            <li>Imposibilidad de explicar el calentamiento solo con factores naturales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand"><i class="bi bi-globe-americas"></i>Cambio Climático</div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© 2025 — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <script>
+    const btn  = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    // Aplica el tema recibido, lo guarda y actualiza el ícono del botón
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('cc-theme', theme);
+      icon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    }
+
+    // Sincroniza el ícono con el tema que ya aplicó el script del head
+    applyTheme(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Alterna entre dark y light al hacer clic
+    btn.addEventListener('click', function() {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>
