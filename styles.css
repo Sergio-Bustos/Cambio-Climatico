@@ -446,6 +446,7 @@ section.py-section { padding: 4rem 0; }
 .carousel-control-next {
   width: 44px;
   height: 44px;
+  /* top: 50% centra sobre el total (imagen + caption); se recalcula en móvil */
   top: 50%;
   transform: translateY(-50%);
   background: rgba(13,17,23,0.7);
@@ -675,6 +676,18 @@ footer .footer-brand i { color: var(--accent-green); }
   .carousel-caption h5 { font-size: 1.05rem; }
   .carousel-caption p  { font-size: 0.8rem; }
 
+  /* Las flechas se anclan a la mitad de la imagen (300px),
+     en lugar de la mitad del bloque completo (imagen + caption).
+     Así nunca se solapan con el texto del caption. */
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 150px;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    margin: 0 0.4rem;
+  }
+
   .cta-block  { padding: 2rem; }
   .card-body  { padding: 1.25rem; }
   .page-header { padding: 2.5rem 0 1.5rem; }
@@ -688,7 +701,18 @@ footer .footer-brand i { color: var(--accent-green); }
 @media (max-width: 480px) {
 
   .hero-band { padding: 3rem 0; }
+
+  /* Imagen más baja en móvil pequeño — flechas reajustadas a su mitad (120px) */
   .carousel-item img { height: 240px; }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 120px;
+    width: 32px;
+    height: 32px;
+    margin: 0 0.2rem;
+  }
+
   .stat-card { min-height: 100px; }
 }
 
