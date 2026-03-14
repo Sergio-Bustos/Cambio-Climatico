@@ -2,6 +2,9 @@
 
 # 🌍 Cambio Climático — Sitio Web Educativo
 
+<img src="icono.png" width="100" alt="Logo del icono de la página">
+&nbsp;&nbsp;&nbsp;&nbsp;
+
 **Recurso científico y educativo sobre la crisis climática global**
 
 [![HTML5](https://img.shields.io/badge/HTML5-Semántico-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
