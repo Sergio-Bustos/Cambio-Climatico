@@ -98,7 +98,7 @@ Al ser un sitio estático, no requiere instalación ni servidor:
 
 ```bash
 # 1. Clona el repositorio
-git clone https://github.com/tu-usuario/cambio-climatico.git
+git clone https://github.com/Sergio-Bustos/Cambio-Climatico
 
 # 2. Entra al directorio
 cd cambio-climatico
