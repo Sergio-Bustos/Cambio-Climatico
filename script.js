@@ -60,7 +60,7 @@
       w = innerWidth; h = innerHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = w < 700 ? 26 : 90;
+      const n = w < 700 ? 48 : 90;
       ps = Array.from({ length: n }, () => make(true));
     }
     function frame(t) {
@@ -128,7 +128,7 @@
   const curtain = $('.page-curtain');
   // Seguro: si por cualquier razón la cortina sigue ahí, se quita sola
   if (curtain) setTimeout(() => { if (!curtain.classList.contains('leave')) curtain.remove(); }, 3500);
-  if (curtain && !reduced && matchMedia('(min-width: 992px)').matches) {
+  if (curtain && !reduced) {
     document.addEventListener('click', e => {
       const a = e.target.closest('a[href]');
       if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
@@ -295,4 +295,4 @@
     })();
   }
 })();
-      
+    
