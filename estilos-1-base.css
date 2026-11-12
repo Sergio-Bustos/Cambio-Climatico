@@ -1,0 +1,219 @@
+/* ============================================================
+   CAMBIO CLIMÁTICO — Sistema de diseño "Termómetro"
+   Idea: la página se calienta mientras bajas. Arriba todo es hielo
+   (azul), abajo todo es brasa (naranja). Nieve → cenizas, aurora que
+   cambia de color y un termómetro lateral que sube con el scroll.
+   Tipografías: Fraunces (títulos) + Outfit (cuerpo)
+   ============================================================ */
+
+
+/* ── 1. Variables ───────────────────────────────────────── */
+
+@property --ang { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+
+:root {
+  --bg-base:       #050c0b;
+  --bg-surface:    #0a1513;
+  --bg-card:       rgba(255,255,255,0.045);
+  --bg-card-solid: #0f1d1a;
+  --bg-card-hover: rgba(255,255,255,0.075);
+
+  --border:        rgba(255,255,255,0.09);
+  --border-strong: rgba(255,255,255,0.2);
+  --border-accent: rgba(163,230,53,0.4);
+
+  --text-primary:  #ecf6f1;
+  --text-secondary:#9db5ab;
+  --text-muted:    #62807a;
+
+  --accent-green:  #a3e635;
+  --accent-teal:   #2dd4bf;
+  --accent-amber:  #fbbf24;
+  --ice:           #7dd3fc;
+  --ember:         #fb923c;
+  --hot:           #f43f5e;
+
+  --grad: linear-gradient(110deg, var(--ice), var(--accent-teal) 28%, var(--accent-green) 56%, var(--accent-amber) 80%, var(--ember));
+
+  --nav-bg:        rgba(8,16,14,0.62);
+  --glow:          rgba(45,212,191,0.35);
+
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.35);
+  --shadow-md: 0 12px 40px rgba(0,0,0,0.45);
+  --shadow-lg: 0 28px 80px rgba(0,0,0,0.55);
+
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Outfit', system-ui, sans-serif;
+
+  --ease:   cubic-bezier(.22, 1, .36, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  --curtain:cubic-bezier(.77, 0, .18, 1);
+  --transition: .3s var(--ease);
+}
+
+[data-theme="light"] {
+  --bg-base:       #f4f2e9;
+  --bg-surface:    #eae8da;
+  --bg-card:       rgba(255,255,255,0.72);
+  --bg-card-solid: #ffffff;
+  --bg-card-hover: rgba(255,255,255,0.95);
+
+  --border:        rgba(16,45,35,0.1);
+  --border-strong: rgba(16,45,35,0.22);
+  --border-accent: rgba(77,124,15,0.45);
+
+  --text-primary:  #10231c;
+  --text-secondary:#43594f;
+  --text-muted:    #7d9188;
+
+  --accent-green:  #4d7c0f;
+  --accent-teal:   #0f766e;
+  --accent-amber:  #b45309;
+  --ice:           #0284c7;
+  --ember:         #ea580c;
+  --hot:           #e11d48;
+
+  --nav-bg:        rgba(255,255,255,0.7);
+  --glow:          rgba(15,118,110,0.28);
+
+  --shadow-sm: 0 2px 10px rgba(30,60,45,0.08);
+  --shadow-md: 0 12px 40px rgba(30,60,45,0.12);
+  --shadow-lg: 0 28px 80px rgba(30,60,45,0.18);
+}
+
+
+/* ── 2. Reset y base ────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 100px; overflow-x: hidden; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color .5s ease, color .5s ease;
+}
+
+/* Grano de papel */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  z-index: 9000; pointer-events: none; opacity: .6;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+nav, main, footer, .hero-band { position: relative; z-index: 1; }
+nav.navbar { z-index: 1000; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+h1 { font-size: clamp(2rem, 5.6vw, 4.4rem); font-weight: 800; }
+h2 { font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 700; }
+h3 { font-size: clamp(1.3rem, 2.6vw, 1.8rem); font-weight: 700; }
+h4 { font-size: 1.2rem; font-weight: 600; }
+h5 { font-size: 1.05rem; font-weight: 600; }
+
+p { color: var(--text-secondary); }
+.lead { font-size: 1.12rem; line-height: 1.85; color: var(--text-secondary); font-weight: 300; }
+
+.text-accent         { color: var(--accent-green) !important; }
+.text-body-secondary { color: var(--text-secondary) !important; }
+.text-muted-custom   { color: var(--text-muted) !important; }
+.container { max-width: 1140px; }
+::selection { background: var(--accent-teal); color: #04100d; }
+
+a { color: var(--accent-green); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--accent-teal); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: linear-gradient(var(--ice), var(--accent-green), var(--ember)); border-radius: 10px; border: 2px solid var(--bg-base); }
+
+
+/* ── 3. Fondo vivo (inyectado por script.js) ────────────── */
+
+.bg-fx { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; --heat: 0; }
+.bg-fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Las manchas de aurora cambian de color con la temperatura (--heat) */
+.aurora i { position: absolute; width: 58vmax; height: 58vmax; border-radius: 50%; filter: blur(100px); opacity: .3; will-change: transform; }
+.aurora i:nth-child(1) { top: -25%; left: -15%; background: color-mix(in srgb, var(--ice) calc((1 - var(--heat)) * 100%), var(--ember)); animation: drift1 24s ease-in-out infinite; }
+.aurora i:nth-child(2) { top: 10%; right: -22%; background: color-mix(in srgb, var(--accent-teal) calc((1 - var(--heat)) * 100%), var(--hot)); animation: drift2 30s ease-in-out infinite; opacity: .24; }
+.aurora i:nth-child(3) { bottom: -32%; left: 18%; background: color-mix(in srgb, var(--accent-green) calc((1 - var(--heat)) * 100%), var(--accent-amber)); animation: drift3 34s ease-in-out infinite; opacity: .2; }
+[data-theme="light"] .aurora i { opacity: .2; }
+[data-theme="light"] .aurora i:nth-child(2) { opacity: .14; }
+[data-theme="light"] .aurora i:nth-child(3) { opacity: .14; }
+
+.bg-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--border-strong) 1px, transparent 1.4px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 25%, #000 10%, transparent 75%);
+          mask-image: radial-gradient(ellipse 90% 70% at 50% 25%, #000 10%, transparent 75%);
+  opacity: .55;
+}
+
+.cursor-glow {
+  position: absolute; top: 0; left: 0;
+  width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--ice) calc((1 - var(--heat)) * 100%), var(--ember)) 0%, transparent 62%);
+  opacity: 0; transition: opacity .6s;
+}
+.cursor-glow.on { opacity: .16; }
+[data-theme="light"] .cursor-glow.on { opacity: .22; }
+
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 2000;
+  background: var(--grad);
+  transform-origin: left; transform: scaleX(var(--p, 0));
+  box-shadow: 0 0 14px var(--glow);
+}
+
+/* Termómetro lateral */
+.thermo {
+  position: fixed; right: 22px; top: 50%; z-index: 900;
+  width: 44px; height: min(46vh, 380px);
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  pointer-events: none;
+  animation: thermoIn 1s var(--ease) 1.6s backwards;
+}
+.thermo-label {
+  font-family: var(--font-display); font-weight: 700; font-size: .78rem;
+  color: var(--text-primary); background: var(--bg-card-solid);
+  border: 1px solid var(--border-strong); border-radius: 999px;
+  padding: .15rem .55rem; white-space: nowrap; font-variant-numeric: tabular-nums;
+  box-shadow: var(--shadow-sm);
+}
+.thermo-tube {
+  position: relative; flex: 1; width: 12px; border-radius: 12px;
+  background: var(--bg-card); border: 1px solid var(--border-strong);
+  overflow: hidden;
+  background-image: repeating-linear-gradient(0deg, transparent 0 17px, var(--border) 17px 18px);
+}
+.thermo-fill {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 100%;
+  background: linear-gradient(0deg, var(--ember), var(--accent-amber), var(--accent-green), var(--accent-teal), var(--ice));
+  transform-origin: bottom; transform: scaleY(var(--p, 0));
+  box-shadow: 0 0 18px var(--glow);
+}
+.thermo-bulb {
+  width: 26px; height: 26px; border-radius: 50%; margin-top: -4px;
+  background: color-mix(in srgb, var(--ice) calc((1 - var(--heat, 0)) * 100%), var(--hot));
+  box-shadow: 0 0 22px color-mix(in srgb, var(--ice) calc((1 - var(--heat, 0)) * 100%), var(--hot));
+  border: 2px solid var(--bg-base);
+}
+@media (max-width: 1199.98px) { .thermo { display: none; } }
