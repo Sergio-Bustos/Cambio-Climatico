@@ -1,4 +1,3 @@
-
 /* ============================================================
    CAMBIO CLIMÁTICO — Sistema de diseño "Termómetro"
    Idea: la página se calienta mientras bajas. Arriba todo es hielo
@@ -217,7 +216,12 @@ a:hover { color: var(--accent-teal); }
   box-shadow: 0 0 22px color-mix(in srgb, var(--ice) calc((1 - var(--heat, 0)) * 100%), var(--hot));
   border: 2px solid var(--bg-base);
 }
-@media (max-width: 1199.98px) { .thermo { display: none; } }
+@media (max-width: 1199.98px) {
+  .thermo { right: 5px; width: 22px; height: min(34vh, 260px); gap: 6px; opacity: .9; }
+  .thermo-label { font-size: .58rem; padding: .1rem .35rem; }
+  .thermo-tube { width: 8px; }
+  .thermo-bulb { width: 18px; height: 18px; }
+}
 
 
 /* ── 4. Cortina de transición entre páginas ─────────────── */
@@ -434,7 +438,4 @@ div.hero-band .hero-orb { width: min(400px, 56vw); right: -3%; }
 .heading-underline.go .w { animation: wordIn 1s var(--spring) backwards; animation-delay: calc(var(--wi) * 90ms + var(--wd, 0s)); }
 .heading-underline::after {
   content: ''; position: absolute; bottom: 0; left: 50%;
-  width: 72px; height: 4px; border-radius: 4px; transform: translateX(-50%);
-  background: var(--grad); background-size: 300% 100%;
-  animation: gradMove 5s linear infinite; box-shadow: 0 0 16px var(--glow);
-  transition
+  width: 72px; heigh
