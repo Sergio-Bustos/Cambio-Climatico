@@ -6,6 +6,10 @@
   'use strict';
 
   const root = document.documentElement;
+  // La clase "js" oculta los elementos que se revelan con scroll: solo se activa
+  // si este script cargó bien, y se quita si algo falla (el contenido nunca se pierde).
+  root.classList.add('js');
+  addEventListener('error', () => root.classList.remove('js'));
   const body = document.body;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -185,7 +189,7 @@
   });
   const revObs = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); }
-  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  }), { threshold: .01, rootMargin: '0px 0px -30px 0px' });
   $$('.fade-in-up, .reveal').forEach(el => revObs.observe(el));
 
   function countUp(el) {
@@ -285,3 +289,4 @@
     })();
   }
 })();
+          
