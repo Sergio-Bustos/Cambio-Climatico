@@ -126,7 +126,9 @@
 
   // ── 4. Cortina entre páginas ────────────────────────────────────────
   const curtain = $('.page-curtain');
-  if (curtain && !reduced) {
+  // Seguro: si por cualquier razón la cortina sigue ahí, se quita sola
+  if (curtain) setTimeout(() => { if (!curtain.classList.contains('leave')) curtain.remove(); }, 3500);
+  if (curtain && !reduced && matchMedia('(min-width: 992px)').matches) {
     document.addEventListener('click', e => {
       const a = e.target.closest('a[href]');
       if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
@@ -293,4 +295,4 @@
     })();
   }
 })();
-                                           
+      
