@@ -58,9 +58,9 @@
 [data-theme="light"] {
   --bg-base:       #f4f2e9;
   --bg-surface:    #eae8da;
-  --bg-card:       rgba(255,255,255,0.72);
+  --bg-card:       rgba(255,255,255,0.5);
   --bg-card-solid: #ffffff;
-  --bg-card-hover: rgba(255,255,255,0.95);
+  --bg-card-hover: rgba(255,255,255,0.78);
 
   --border:        rgba(16,45,35,0.1);
   --border-strong: rgba(16,45,35,0.22);
@@ -438,4 +438,4 @@ div.hero-band .hero-orb { width: min(400px, 56vw); right: -3%; }
 .heading-underline.go .w { animation: wordIn 1s var(--spring) backwards; animation-delay: calc(var(--wi) * 90ms + var(--wd, 0s)); }
 .heading-underline::after {
   content: ''; position: absolute; bottom: 0; left: 50%;
-  width: 72px; heigh
+  width: 72px; height
