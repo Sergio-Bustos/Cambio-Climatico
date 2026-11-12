@@ -60,7 +60,7 @@
       w = innerWidth; h = innerHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = w < 700 ? 38 : 90;
+      const n = w < 700 ? 26 : 90;
       ps = Array.from({ length: n }, () => make(true));
     }
     function frame(t) {
@@ -224,6 +224,10 @@
     thermoLabel.textContent = '+' + (1.1 + p * 2.9).toFixed(1) + '°C';
     orbs.forEach(o => o.style.setProperty('--heat', p.toFixed(3)));
     if (navbar) navbar.classList.toggle('scrolled', y > 30);
+    // Respaldo: si el observador falla (algunos celulares), revela lo que ya está a la vista
+    $$('.fade-in-up:not(.visible), .reveal:not(.visible)').forEach(el => {
+      if (el.getBoundingClientRect().top < innerHeight * .92) el.classList.add('visible');
+    });
   }
   const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
   addEventListener('scroll', onScroll, { passive: true });
@@ -289,4 +293,4 @@
     })();
   }
 })();
-          
+                                           
