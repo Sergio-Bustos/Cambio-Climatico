@@ -18,6 +18,21 @@
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
+  // Sonido de click en cualquier clic o toque (click.mp4; si falla, prueba otras extensiones)
+  (function () {
+    const exts = ['mp4', 'mp3', 'm4a', 'wav', 'ogg'];
+    let au;
+    try {
+      au = new Audio(); au.preload = 'auto'; au.volume = .7;
+      let i = 0;
+      const next = () => { if (i < exts.length) { au.src = 'click.' + exts[i++]; au.load(); } };
+      au.addEventListener('error', next); next();
+    } catch (e) { return; }
+    document.addEventListener('click', () => {
+      try { au.currentTime = 0; const r = au.play(); if (r && r.catch) r.catch(() => {}); } catch (e) { /* sin audio */ }
+    }, true);
+  })();
+
 
   // ── 1. Capas de fondo + termómetro ──────────────────────────────────
   const fx = document.createElement('div');
