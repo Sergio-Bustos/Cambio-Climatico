@@ -1,116 +1,111 @@
-/* ── 9. Carrusel ────────────────────────────────────────── */
+/* ── 11. Carrusel ───────────────────────────────────────── */
+.carousel { background: var(--surface); }
+.carousel-item img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; display: block; }
+.carousel-fade .carousel-item { transition-duration: .9s; }
 
-.carousel {
-  border-radius: 32px; overflow: hidden; border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow-lg), 0 30px 90px -40px var(--glow);
-}
-.carousel-item img { height: 520px; object-fit: cover; filter: brightness(.7) saturate(1.15); }
-.carousel-item.active img { animation: kenBurns 9s ease-out forwards; }
-
-.carousel-item::after {            /* degradado oscuro abajo: el texto siempre se lee */
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(3,10,8,.15) 0%, rgba(3,10,8,.2) 40%, rgba(3,10,8,.82) 100%);
-}
+/* Pie de foto: placa sólida abajo a la izquierda */
 .carousel-caption {
-  z-index: 10;
-  left: 2rem; right: auto; bottom: 3.4rem; max-width: 540px;
-  padding: 1.5rem 1.8rem !important; text-align: left; border-radius: 22px;
-  background: rgba(3,10,8,.62);
-  -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3);
-  border: 1px solid rgba(255,255,255,.2);
+  position: absolute; left: 0; bottom: 0; right: auto; top: auto;
+  width: min(34rem, 100%); padding: 1.5rem 1.7rem 1.6rem; margin: 0;
+  background: var(--bg); text-align: left; color: var(--ink2);
 }
-.carousel-item.active .carousel-caption { animation: capIn 1s var(--ease) .35s backwards; }
-.carousel-caption h5 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: #fff !important; margin-bottom: .45rem; text-shadow: 0 2px 14px rgba(0,0,0,.7); }
-.carousel-caption p  { font-size: .98rem; color: #fff !important; opacity: 1; margin: 0; font-weight: 400; text-shadow: 0 1px 10px rgba(0,0,0,.8); }
+.carousel-caption h5 { margin: 0 0 .5rem; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--ink); }
+.carousel-caption p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--ink2); }
 
-.carousel-indicators { bottom: 1.2rem !important; margin: 0; z-index: 20; }
-.carousel-indicators button { width: 10px; height: 10px; border-radius: 10px; border: none; background: rgba(255,255,255,.45); opacity: 1; transition: width .5s var(--spring), background .3s; }
-.carousel-indicators button.active { width: 40px; background: var(--grad); }
+/* Indicadores: una barra por diapositiva que se llena en 5 s */
+.carousel-indicators { position: absolute; top: 0; bottom: auto; left: 0; right: 0; margin: 0; padding: 0; gap: 4px; justify-content: stretch; }
+.carousel-indicators [data-bs-target] {
+  flex: 1; width: auto; height: 5px; margin: 0; padding: 0; border: 0;
+  background: rgba(255,255,255,.35); position: relative; overflow: hidden; opacity: 1; text-indent: 0;
+}
+.carousel-indicators .active::after {
+  content: ''; position: absolute; inset: 0; background: #fff;
+  transform-origin: left; animation: fill 5s linear forwards;
+}
+.carousel:hover .carousel-indicators .active::after { animation-play-state: paused; }
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
+/* Controles: dos cuadros abajo a la derecha */
 .carousel-control-prev, .carousel-control-next {
-  width: 52px; height: 52px; top: 50%; transform: translateY(-50%);
-  margin: 0 1.2rem; border-radius: 50%; opacity: 1;
-  background: rgba(6,16,14,.45); border: 1px solid rgba(255,255,255,.2);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .45s var(--spring), background .3s;
+  top: auto; bottom: 0; width: 3.4rem; height: 3.4rem; opacity: 1;
+  background: var(--ink); transition: background-color .25s;
 }
-.carousel-control-prev:hover, .carousel-control-next:hover { transform: translateY(-50%) scale(1.18); background: var(--accent-teal); }
+.carousel-control-prev { left: auto; right: 3.4rem; }
+.carousel-control-next { right: 0; }
+.carousel-control-prev i, .carousel-control-next i { color: var(--bg) !important; font-size: 1.1rem !important; transition: color .2s, transform .3s var(--ease); }
+.carousel-control-prev:hover, .carousel-control-next:hover { background: var(--a3); }
+.carousel-control-prev:hover i, .carousel-control-next:hover i { color: #fff !important; }
+.carousel-control-prev:hover i { transform: translateX(-3px); }
+.carousel-control-next:hover i { transform: translateX(3px); }
 
-
-/* ── 10. Acordeón ───────────────────────────────────────── */
-
-.accordion-item {
-  background: var(--bg-card); border: 1px solid var(--border) !important;
-  border-radius: var(--radius-md) !important; margin-bottom: .7rem; overflow: hidden;
-  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
-  transition: border-color .4s, box-shadow .4s, transform .5s var(--spring);
+@media (max-width: 767.98px) {
+  .carousel-item img { aspect-ratio: 4 / 5; }
+  .carousel-caption { width: 100%; padding: 1.1rem 1.2rem 1.2rem; }
+  .carousel-caption p { font-size: .95rem; }
+  .carousel-control-prev, .carousel-control-next { top: 5px; bottom: auto; width: 2.8rem; height: 2.8rem; }
+  .carousel-control-prev { right: 2.8rem; }
 }
-.accordion-item:hover { transform: translateX(6px); border-color: var(--border-strong) !important; }
-.accordion-item:has(.accordion-button:not(.collapsed)) { border-color: color-mix(in srgb, var(--accent-teal) 60%, transparent) !important; box-shadow: 0 18px 50px -24px var(--glow); transform: none; }
 
-.accordion-button {
-  background: transparent !important; color: var(--text-primary) !important;
-  font-family: var(--font-body); font-weight: 600; font-size: 1rem; padding: 1.2rem 1.5rem;
-  border: none !important; box-shadow: none !important;
-}
-.accordion-button:not(.collapsed) { color: var(--accent-teal) !important; background: color-mix(in srgb, var(--accent-teal) 7%, transparent) !important; }
-.accordion-button::after { filter: invert(.55); transition: transform .5s var(--spring); }
-[data-theme="light"] .accordion-button::after { filter: none; }
-.accordion-body { background: transparent; color: var(--text-secondary); font-size: .96rem; line-height: 1.85; padding: .4rem 1.5rem 1.5rem; }
-.accordion-body strong { color: var(--text-primary); }
-
-
-/* ── 11. Bloques de contenido ───────────────────────────── */
-
-.section-block {
-  position: relative; overflow: hidden;
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: 2.4rem 2.4rem 2.4rem 2.8rem;
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
-}
+/* ── 12. Bloques de texto ───────────────────────────────── */
+.section-block { position: relative; padding: .2rem 0 .2rem 1.8rem; background: none; border: 0; border-radius: 0; }
 .section-block::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
-  background: linear-gradient(var(--ice), var(--accent-green), var(--ember)); background-size: 100% 300%;
-  animation: gradY 6s ease-in-out infinite alternate; box-shadow: 0 0 18px var(--glow);
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: linear-gradient(180deg,#2171b5,#6baed6 30%,#fb6a4a 70%,#cb181d);
+  transform-origin: top; transition: transform 1.1s var(--ease) .15s;
 }
-.section-block strong { color: var(--text-primary); }
+.js .section-block.reveal:not(.visible)::before { transform: scaleY(0); }
+.section-block h3 { margin-bottom: 1.1rem; }
+.section-block p { font-size: clamp(1.15rem, 1.8vw, 1.32rem); line-height: 1.6; max-width: 34em; margin-bottom: 1.1rem; }
+.section-block p:last-child { margin-bottom: 0; }
+.section-block .mt-3 { margin-top: 1.2rem !important; }
 
+/* Bloque invertido (llamada a la acción) */
 .cta-block {
-  position: relative; overflow: hidden; isolation: isolate;
-  padding: 3.6rem 2.4rem; text-align: center;
-  border-radius: 34px; border: 1px solid var(--border-strong);
-  background: var(--bg-card);
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  --bg-i: var(--ink); --fg-i: var(--bg);
+  position: relative; background: var(--bg-i); color: var(--fg-i);
+  padding: clamp(2.2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+  text-align: left; border-radius: 0; overflow: hidden;
 }
-.cta-block::before {
-  content: ''; position: absolute; inset: -60%; z-index: -2;
-  background: conic-gradient(from var(--ang), transparent 0 50%, color-mix(in srgb, var(--accent-teal) 55%, transparent), color-mix(in srgb, var(--accent-green) 50%, transparent), color-mix(in srgb, var(--ember) 55%, transparent), transparent 95%);
-  filter: blur(60px); opacity: .55; animation: spinAng 16s linear infinite;
-}
-.cta-block::after {
-  content: ''; position: absolute; inset: 1px; z-index: -1; border-radius: inherit;
-  background: color-mix(in srgb, var(--bg-base) 72%, transparent);
-}
+.cta-block::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 10px; background: var(--ramp); }
+.cta-block h3 { color: var(--fg-i); font-size: clamp(2.3rem, 5.4vw, 4rem); margin-bottom: 1rem !important; }
+.cta-block p, .cta-block .lead { color: color-mix(in srgb, var(--fg-i) 82%, var(--bg-i)); max-width: 34em; margin: 0 0 1.5rem !important; }
+.cta-block strong { color: var(--fg-i); }
+.cta-block .btn-primary { --bs-btn-color: var(--bg-i); --bs-btn-bg: var(--fg-i); --bs-btn-border-color: var(--fg-i); }
+.cta-block .styled-list li { border-color: color-mix(in srgb, var(--fg-i) 28%, transparent); color: var(--fg-i); }
+.row > [class*="col-"] > .cta-block { margin-top: 0; }
 
-ul.styled-list { list-style: none; padding: 0; }
-ul.styled-list li {
-  position: relative; padding: .8rem .6rem .8rem 2.1rem;
-  color: var(--text-secondary); font-size: .98rem; border-bottom: 1px solid var(--border);
-  transition: transform .45s var(--spring), color .3s, background .3s; border-radius: 10px;
-}
-ul.styled-list li:last-child { border-bottom: none; }
-ul.styled-list li::before {
-  content: ''; position: absolute; left: .5rem; top: 50%; width: 9px; height: 9px; margin-top: -4.5px;
-  border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
-  background: var(--accent-green); box-shadow: 0 0 10px var(--accent-green);
-  transition: transform .5s var(--spring);
-}
-ul.styled-list li:hover { transform: translateX(10px); color: var(--text-primary); background: var(--bg-card); }
-ul.styled-list li:hover::before { transform: rotate(-45deg) scale(1.7); }
+/* Listas: una raya roja por punto */
+.styled-list { list-style: none; padding: 0; margin: 1.4rem 0; max-width: 40em; }
+.styled-list li { position: relative; padding: .8rem 0 .8rem 1.9rem; border-top: 1px solid var(--rule2); font-size: 1.08rem; line-height: 1.55; color: var(--ink2); }
+.styled-list li:last-child { border-bottom: 1px solid var(--rule2); }
+.styled-list li::before { content: ''; position: absolute; left: 0; top: 1.5rem; width: 1rem; height: 3px; background: var(--a3); transition: width .35s var(--ease); }
+.styled-list li:hover::before { width: 1.4rem; }
+.cta-block .styled-list li::before { background: #fb6a4a; }
 
-.divider { height: 1px; margin: 3.5rem 0; background: linear-gradient(90deg, transparent, var(--border-strong), transparent); position: relative; overflow: visible; }
-.divider::after {
-  content: ''; position: absolute; left: 50%; top: -3px; width: 7px; height: 7px; margin-left: -3.5px;
-  border-radius: 50%; background: var(--accent-teal); box-shadow: 0 0 14px 3px var(--accent-teal); animation: blink 2.4s ease-in-out infinite;
+.divider { height: 1px; border: 0; background: var(--rule2); margin: clamp(3rem, 7vw, 5rem) 0; }
+
+/* ── 13. Acordeón: lista con reglas y signo + ───────────── */
+.accordion {
+  --bs-accordion-bg: transparent; --bs-accordion-color: var(--ink2);
+  --bs-accordion-border-color: var(--rule2); --bs-accordion-border-radius: 0; --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-btn-color: var(--ink); --bs-accordion-btn-bg: transparent;
+  --bs-accordion-active-color: var(--ink); --bs-accordion-active-bg: transparent;
+  --bs-accordion-btn-focus-box-shadow: none; --bs-accordion-btn-padding-x: 0; --bs-accordion-btn-padding-y: 1.3rem;
+  --bs-accordion-body-padding-x: 0; --bs-accordion-btn-icon-transform: rotate(45deg);
+  --bs-accordion-btn-icon: none; --bs-accordion-btn-active-icon: none;
 }
+.accordion-item { background: none; border: 0; border-top: 1px solid var(--rule2); border-radius: 0; }
+.accordion-item:last-child { border-bottom: 1px solid var(--rule2); }
+.accordion-button {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(1.45rem, 2.6vw, 1.95rem); line-height: 1.05;
+  background: none; box-shadow: none; gap: 1.5rem; text-align: left; letter-spacing: 0;
+}
+.accordion-button:not(.collapsed) { background: none; box-shadow: none; color: var(--ink); }
+.accordion-button::after {
+  background-image: none !important; content: '+'; width: auto; height: auto; flex: none; margin-left: auto;
+  font-family: var(--font-display); font-weight: 400; font-size: 2.4rem; line-height: .8; color: var(--a3);
+  transition: transform .45s var(--ease);
+}
+.accordion-button:not(.collapsed)::after { transform: rotate(45deg); }
+.accordion-button:hover { color: var(--ink); }
+.accordion-body { padding: 0 3rem 1.7rem 0; font-size: 1.08rem; line-height: 1.7; max-width: 42em; color: var(--ink2); }
