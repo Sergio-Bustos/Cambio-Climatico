@@ -1,0 +1,82 @@
+/* ============================================================
+   Tipografía y menú al estilo de "Herencia Culinaria"
+   (Archivo para títulos · Barlow para texto) con la paleta original
+   de Cambio Climático. Se carga al final para tener prioridad.
+   Las fuentes viven en: font_archivo.woff2, font_b400/b500/b600.woff2
+   ============================================================ */
+@font-face{font-family:"Archivo";src:url(font_archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Barlow";src:url(font_b400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Barlow";src:url(font_b500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Barlow";src:url(font_b600.woff2) format("woff2");font-weight:600;font-display:swap}
+
+:root{
+  --font-display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --font-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hd:68px;
+}
+body{font-size:1.0625rem;line-height:1.55}
+.lead{line-height:1.5}
+
+/* Títulos: mayúsculas, ancho expandido (igual que Herencia) */
+h1,h2,h3,h4,h5,h6{font-stretch:116%;font-weight:850;text-transform:uppercase;line-height:.96;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,6.2vw,4.9rem);font-weight:900;font-stretch:120%;line-height:.94;letter-spacing:-.015em}
+h2{font-size:clamp(1.8rem,4.6vw,3.3rem)}
+h3{font-size:clamp(1.5rem,3.2vw,2.2rem)}
+h4{font-size:1.45rem}
+h5{font-size:1.25rem;font-weight:800}
+h6{font-size:1.05rem;font-weight:800}
+.card-title{font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.02}
+.carousel-caption h5{font-size:clamp(1.3rem,2.4vw,1.9rem)}
+.cta-block h3{font-size:clamp(1.8rem,4.4vw,3.2rem)}
+.stat-number{font-stretch:112%;font-size:clamp(2.1rem,4.4vw,3.6rem)}
+.stat-label,.stripes-axis em{font-style:normal}
+.stripes-axis b{font-stretch:112%;text-transform:none}
+.accordion-button{font-stretch:112%;text-transform:uppercase;font-size:clamp(1.1rem,2.1vw,1.45rem)!important}
+.btn{font-stretch:108%;font-weight:750;font-size:1rem;text-transform:uppercase;letter-spacing:.02em}
+.btn-sm{font-size:.92rem}
+em,i.t,.italic{font-style:normal}
+footer .footer-brand{font-size:1.4rem}
+
+/* ── Cabecera ───────────────────────────────────────────── */
+.hd{position:sticky;top:0;z-index:1000;height:var(--hd);background:var(--bg);border-bottom:1px solid var(--rule);transition:border-color .3s,box-shadow .3s,background-color .5s}
+.hd.fijo{border-bottom-color:var(--rule2);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.hd-in{display:flex;align-items:center;gap:12px;height:100%;max-width:1400px;margin:0 auto;padding:0 var(--gut)}
+.hd-marca{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0;text-decoration:none;color:var(--ink);
+  font-family:var(--font-display);font-weight:900;font-stretch:115%;text-transform:uppercase;line-height:.9;font-size:.95rem;letter-spacing:.01em}
+.hd-marca:hover{color:var(--ink);text-decoration:none}
+.hd-marca::before{content:'';width:34px;height:34px;flex:none;background:linear-gradient(90deg,#2171b5 0 25%,#9ecae1 25% 50%,#fb6a4a 50% 75%,#a50f15 75%);transition:transform .5s var(--ease)}
+.hd-marca:hover::before{transform:scaleX(-1)}
+.hd-marca span{display:block}
+.hd-marca span+span,.hd-marca b{color:var(--a3)}
+.hd-nav{display:none;gap:2px}
+.hd-nav a{position:relative;text-decoration:none;font-family:var(--font-display);font-stretch:108%;font-weight:750;text-transform:uppercase;font-size:.84rem;letter-spacing:.01em;padding:8px 9px;color:var(--ink2);transition:color .2s}
+.hd-nav a::after{content:"";position:absolute;left:9px;right:9px;bottom:0;height:3px;background:var(--ramp-smooth);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.hd-nav a:hover,.hd-nav a.act{color:var(--ink);text-decoration:none}
+.hd-nav a:hover::after,.hd-nav a.act::after{transform:none}
+
+.icono-b{width:44px;height:44px;border-radius:8px;border:1px solid var(--rule2);background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none;padding:0;
+  transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease}
+.icono-b svg{width:22px;height:22px}
+.icono-b:hover{transform:translateY(-2px);background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.hd .btn-theme-toggle{width:44px;height:44px;border-radius:8px}
+.hd-son .off{display:none}
+.hd-son[aria-pressed="false"] .on{display:none}
+.hd-son[aria-pressed="false"] .off{display:block}
+.hd-menu{display:grid}
+@media (min-width:1320px){.hd-nav{display:flex}.hd-menu{display:none}.hd-marca{font-size:1rem}}
+
+/* ── Menú hamburguesa a pantalla completa ───────────────── */
+.menu{position:fixed;inset:0;z-index:3000;background:var(--bg);color:var(--ink);display:flex;flex-direction:column;
+  padding:calc(var(--hd) + 10px) 24px calc(24px + env(safe-area-inset-bottom));overflow:auto}
+.menu[hidden]{display:none}
+.menu-x{position:absolute;right:16px;top:12px}
+.menu nav{display:grid;gap:4px;margin-bottom:28px;position:static}
+.menu nav a{display:block;text-decoration:none;color:var(--ink);font-family:var(--font-display);font-stretch:118%;font-weight:850;text-transform:uppercase;
+  font-size:clamp(1.5rem,7vw,2.3rem);line-height:1.15;padding:8px 0;border-bottom:1px solid var(--rule)}
+.menu nav a:hover,.menu nav a.act{color:var(--a3);text-decoration:none}
+.js .menu nav a{opacity:0;transform:translateX(-18px)}
+.menu.abierto nav a{opacity:1;transform:none;transition:opacity .35s ease,transform .35s ease,color .2s;transition-delay:calc(var(--i) * 45ms)}
+.menu-pie{margin-top:auto}
+.menu-pie .stripes{--sh:14px;margin:0 0 14px}
+.menu-datos{color:var(--muted);font-size:.95rem;margin:0;line-height:1.6}
+@media (prefers-reduced-motion:reduce){.js .menu nav a{opacity:1;transform:none}}

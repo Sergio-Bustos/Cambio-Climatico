@@ -1,0 +1,11 @@
+/* ============================================================
+   CAMBIO CLIMÁTICO — hoja de estilos principal
+   Está dividida en 5 archivos pequeños (se cargan en este orden).
+   Súbelos TODOS a la misma carpeta que los .html.
+   ============================================================ */
+@import url("estilos-1-base.css");
+@import url("estilos-2-menu-botones.css");
+@import url("estilos-3-hero-tarjetas.css");
+@import url("estilos-4-carrusel-bloques.css");
+@import url("estilos-5-footer-animaciones.css");
+@import url("estilos-6-herencia.css");
