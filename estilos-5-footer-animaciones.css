@@ -1,0 +1,39 @@
+/* ── 14. Pie de página ──────────────────────────────────── */
+footer {
+  position: relative; background: var(--surface); padding: 3.4rem 0 2.6rem; margin-top: clamp(2rem, 5vw, 4rem);
+  content-visibility: auto; contain-intrinsic-size: auto 190px;
+}
+footer::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 12px; background: var(--ramp); }
+footer p { margin: 0; font-size: 1rem; color: var(--muted); }
+footer .footer-brand { font-size: 1.9rem; }
+footer .footer-brand::before { width: 28px; height: 28px; }
+footer > .container { align-items: flex-start !important; }
+@media (min-width: 768px) { footer > .container { align-items: center !important; } footer p:last-child { text-align: right; } }
+
+/* ── 15. Cortina de página: franjas que suben y bajan ───── */
+.page-curtain {
+  position: fixed; inset: 0; z-index: 10000; pointer-events: none;
+  background: var(--ramp); visibility: visible;
+  transform-origin: top; transform: scaleY(0);
+  animation: curtainOut .95s var(--curtain) .05s backwards;
+}
+.page-curtain i, .page-curtain span { display: none; }
+.page-curtain.leave { transform-origin: bottom; transform: scaleY(1); animation: curtainIn .6s var(--curtain) both; }
+@keyframes curtainOut { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@keyframes curtainIn  { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* ── 16. Entradas al hacer scroll (discretas) ───────────── */
+.js .fade-in-up, .js .reveal { opacity: 0; transform: translateY(22px); }
+.js .fade-in-up.visible, .js .reveal.visible {
+  opacity: 1; transform: none;
+  transition: opacity .9s ease var(--rd, 0s), transform 1s var(--ease) var(--rd, 0s);
+}
+.accordion.reveal { transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+  .js .fade-in-up, .js .reveal, .js .heading-underline .w { opacity: 1; transform: none; }
+  .stripes i { transform: none; }
+  .stripes-axis { opacity: 1; }
+  .page-curtain { display: none; }
+}

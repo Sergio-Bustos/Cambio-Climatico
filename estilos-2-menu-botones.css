@@ -1,0 +1,131 @@
+/* ── 5. Tema: transición circular (View Transitions) ───── */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { z-index: 3; }
+::view-transition-old(root) { z-index: 1; }
+.switching *, .switching *::before, .switching *::after { transition: none !important; }
+
+/* ── 6. Barra de navegación ─────────────────────────────── */
+.navbar {
+  position: sticky; top: 0;
+  padding: .55rem 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  transition: border-color .3s, background-color .5s;
+}
+.navbar.scrolled { border-bottom-color: var(--rule2); }
+.navbar > .container { gap: .5rem; }
+
+/* Marca: cuatro franjas en lugar del globo */
+.navbar-brand, .footer-brand {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.55rem; line-height: 1;
+  letter-spacing: .01em; color: var(--ink); text-decoration: none; margin: 0;
+}
+.navbar-brand:hover, .navbar-brand:focus { color: var(--ink); text-decoration: none; }
+.navbar-brand i, .footer-brand i { display: none; }
+.navbar-brand::before, .footer-brand::before {
+  content: ''; width: 24px; height: 24px; flex: none;
+  background: linear-gradient(90deg,#2171b5 0 25%,#9ecae1 25% 50%,#fb6a4a 50% 75%,#a50f15 75%);
+  transition: transform .5s var(--ease);
+}
+.navbar-brand:hover::before { transform: scaleX(-1) rotate(0deg); }
+
+.nav-link i, .dropdown-item i { display: none; }
+.navbar-nav { --bs-nav-link-padding-x: 0; gap: .15rem; }
+@media (min-width: 992px) { .navbar-nav { margin-left: clamp(1rem, 3vw, 2.8rem); } }
+.navbar .nav-link {
+  position: relative; padding: .55rem .8rem;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: .015em;
+  color: var(--ink2); text-decoration: none;
+  transition: color .2s;
+}
+.navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .nav-link.show { color: var(--ink); text-decoration: none; }
+/* subrayado de franjas que se dibuja al pasar y queda fijo en la página activa */
+.navbar .nav-link::after {
+  content: ''; position: absolute; left: .8rem; right: .8rem; bottom: .2rem; height: 3px;
+  background: var(--ramp-smooth);
+  transform: scaleX(0); transform-origin: left; transition: transform .45s var(--ease);
+  border: 0; margin: 0;
+}
+.navbar .nav-link:hover::after, .navbar .nav-link.active::after, .navbar .nav-link.show::after { transform: scaleX(1); }
+.navbar .nav-link.active { color: var(--ink); }
+.navbar .dropdown-toggle::after { position: absolute; border: 0; margin: 0; }
+
+.navbar-toggler { padding: .4rem .5rem; box-shadow: none !important; border-radius: 4px; }
+.navbar-toggler i { color: var(--ink) !important; }
+
+.dropdown-menu {
+  --bs-dropdown-bg: var(--surface); --bs-dropdown-border-color: var(--rule2);
+  --bs-dropdown-link-color: var(--ink2); --bs-dropdown-link-hover-color: var(--ink);
+  --bs-dropdown-link-hover-bg: transparent; --bs-dropdown-link-active-bg: transparent;
+  --bs-dropdown-border-radius: 4px; --bs-dropdown-padding-y: .4rem;
+  border-width: 1px; box-shadow: none; min-width: 16rem; margin-top: .6rem !important;
+  animation: menuIn .35s var(--ease);
+}
+.dropdown-item {
+  padding: .6rem 1.1rem; font-size: 1.05rem; color: var(--ink2);
+  text-decoration: none; position: relative; transition: padding .25s var(--ease), color .2s;
+}
+.dropdown-item::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--a3); transform: scaleY(0); transition: transform .3s var(--ease);
+}
+.dropdown-item:hover, .dropdown-item:focus { color: var(--ink); padding-left: 1.5rem; text-decoration: none; }
+.dropdown-item:hover::before, .dropdown-item:focus::before { transform: scaleY(1); }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-8px); } }
+
+.btn-theme-toggle {
+  width: 42px; height: 42px; border-radius: 50%; flex: none;
+  border: 1.5px solid var(--rule2); background: transparent; color: var(--ink);
+  display: inline-grid; place-items: center; font-size: 1rem; cursor: pointer;
+  transition: background-color .25s, color .25s, border-color .25s;
+}
+.btn-theme-toggle:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn-theme-toggle.spin i { animation: iconSpin .7s var(--ease); }
+@keyframes iconSpin { from { transform: rotate(-160deg) scale(.4); opacity: 0; } }
+
+@media (max-width: 991.98px) {
+  .navbar-collapse { padding: .6rem 0 1rem; }
+  .navbar .nav-link { font-size: 1.7rem; padding: .5rem 0; }
+  .navbar .nav-link::after { left: 0; right: auto; width: 4rem; bottom: .35rem; }
+  .navbar .btn-theme-toggle { margin: .6rem 0 0 !important; }
+  .dropdown-menu { background: transparent; border: 0; border-left: 1px solid var(--rule2); border-radius: 0; margin: 0 0 0 .2rem !important; animation: none; }
+}
+
+/* ── 7. Botones ─────────────────────────────────────────── */
+.btn {
+  --bs-btn-padding-x: 1.7rem; --bs-btn-padding-y: .7rem; --bs-btn-border-radius: 999px; --bs-btn-border-width: 2px;
+  --bs-btn-focus-box-shadow: none;
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: .02em; line-height: 1.1;
+  text-decoration: none; text-align: left;
+  background-repeat: no-repeat; background-position: left center; background-size: 0% 100%;
+  transition: background-size .55s var(--ease), color .3s, border-color .3s;
+}
+.btn:hover { text-decoration: none; background-size: 100% 100%; }
+.btn i { transition: transform .35s var(--ease); }
+.btn:hover i { transform: translateX(4px); }
+.btn:active { transform: translateY(1px); }
+
+.btn-primary, .btn-outline-secondary { background-image: var(--ramp-dark); }
+.btn-primary {
+  --bs-btn-color: var(--bg); --bs-btn-bg: var(--ink); --bs-btn-border-color: var(--ink);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--ink); --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: #fff; --bs-btn-active-bg: var(--ink); --bs-btn-active-border-color: transparent;
+}
+.btn-outline-secondary {
+  --bs-btn-color: var(--ink); --bs-btn-bg: transparent; --bs-btn-border-color: var(--ink);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: transparent; --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: #fff; --bs-btn-active-bg: transparent; --bs-btn-active-border-color: transparent;
+}
+.btn-sm { --bs-btn-padding-x: 1.1rem; --bs-btn-padding-y: .4rem; font-size: 1.05rem; }
+
+/* sobre el bloque invertido el botón cambia de signo */
+.cta-block .btn-primary {
+  --bs-btn-color: var(--ink); --bs-btn-bg: var(--bg); --bs-btn-border-color: var(--bg);
+}
+/* refuerzo de color por si el tema base lo pisa */
+.btn-primary { color: var(--bg); } .btn-outline-secondary { color: var(--ink); }
+.btn-primary:hover, .btn-primary:active, .btn-outline-secondary:hover, .btn-outline-secondary:active { color: #fff; }
+.cta-block .btn-primary { color: var(--ink); }
+.cta-block .btn-primary:hover { color: #fff; }
