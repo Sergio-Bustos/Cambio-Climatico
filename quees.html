@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!-- data-theme="dark" inicial; el script del head lo sobreescribe con el valor guardado -->
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué es? — Cambio Climático</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <!-- Bootstrap JS — bundle incluye Popper, necesario para el dropdown -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Icons — íconos usados en la nav y las tarjetas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Fuentes locales (Archivo + Barlow) se cargan desde estilos-6-herencia.css -->
+
+  <!-- Estilos propios del sitio -->
+  <link rel="preload" href="font_archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="img/icon" href="icono.png">
+
+  <!-- Aplica el tema guardado antes de que el CSS renderice, evita el parpadeo claro/oscuro -->
+  <script>
+    (function(){
+      var t = localStorage.getItem('cc-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Cortina de transición entre páginas (CSS + script.js) -->
+  <div class="page-curtain" aria-hidden="true"><i class="bi bi-globe-americas"></i><span></span></div>
+
+
+  <!-- NAVEGACIÓN — "¿Qué es?" marcado como activo -->
+  <header class="hd" id="hd">
+    <div class="hd-in">
+      <a class="hd-marca" href="index.html" aria-label="Cambio Climático, inicio"><span>Cambio <b>Climático</b></span></a>
+      <nav class="hd-nav" id="hd-nav" aria-label="Principal">
+      <a href="quees.html" class="act" aria-current="page">¿Qué es?</a>
+      <a href="discusion.html">¿Qué se ha hecho?</a>
+      <a href="debemoshacer.html">¿Qué debemos hacer?</a>
+      <a href="resultados.html">Consecuencias</a>
+      <a href="metodologia.html">Metodología</a>
+      <a href="referencias.html">Referencias</a>
+      </nav>
+      <button class="icono-b hd-son" id="son" type="button" aria-label="Sonido del mouse" title="Sonido del mouse" aria-pressed="true"><svg class="on" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/></g></svg><svg class="off" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="m16 9.5 5 5M21 9.5l-5 5"/></g></svg></button>
+      <button class="btn-theme-toggle" id="themeToggle" type="button" title="Cambiar tema" aria-label="Cambiar tema"><i class="bi bi-sun-fill" id="themeIcon"></i></button>
+      <button class="icono-b hd-menu" id="menu-abrir" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" hidden>
+    <button class="icono-b menu-x" id="menu-cerrar" type="button" aria-label="Cerrar menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <nav aria-label="Menú móvil">
+    <a href="index.html" style="--i:0">Inicio</a>
+    <a href="quees.html" style="--i:1" class="act" aria-current="page">¿Qué es?</a>
+    <a href="discusion.html" style="--i:2">¿Qué se ha hecho?</a>
+    <a href="debemoshacer.html" style="--i:3">¿Qué debemos hacer?</a>
+    <a href="resultados.html" style="--i:4">Consecuencias</a>
+    <a href="metodologia.html" style="--i:5">Metodología</a>
+    <a href="referencias.html" style="--i:6">Referencias</a>
+    </nav>
+    <div class="menu-pie"><div class="stripes" aria-hidden="true"></div><p class="menu-datos">Cambio Climático<br>Información científica para nuestro planeta</p></div>
+  </div>
+
+
+  <!-- CABECERA DE PÁGINA — banda con título y descripción introductoria -->
+  <div class="hero-band">
+    <div class="container page-header">
+      <h1 class="heading-underline">¿Qué es el cambio climático?</h1>
+      <p class="lead">
+        Las variaciones a largo plazo en temperaturas y patrones climáticos, aceleradas
+        principalmente por la actividad humana desde la Revolución Industrial.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="container mt-5 mb-5">
+
+
+    <!-- Bloque de definición — section-block destaca visualmente el texto introductorio -->
+    <div class="row mb-5 justify-content-center">
+      <div class="col-lg-8">
+        <div class="section-block">
+          <h3 class="mb-3">El fenómeno en detalle</h3>
+          <p>
+            El cambio climático comprende las variaciones sostenidas a largo plazo en las
+            temperaturas globales y en los patrones del clima. Aunque puede tener causas
+            naturales, desde mediados del siglo XX la evidencia científica señala
+            inequívocamente a la actividad humana como causa dominante.
+          </p>
+          <p class="mb-0">
+            Su manifestación más medida es el
+            <strong style="color:var(--text-primary)">calentamiento global</strong>:
+            el aumento promedio de la temperatura superficial terrestre y oceánica que,
+            desde la era preindustrial, alcanza ya 1.1°C y continúa en ascenso.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Introducción a las causas — texto antes de las tarjetas -->
+    <div class="text-center mb-4">
+      <h2 class="heading-underline">¿Por qué se produce el cambio climático?</h2>
+      <p class="lead mt-3 mx-auto" style="max-width:620px;">
+        Las actividades humanas liberan grandes cantidades de gases de efecto invernadero (GEI)
+        que atrapan el calor solar, alterando el equilibrio térmico del planeta.
+      </p>
+    </div>
+
+
+    <!-- Primera fila de causas — 3 tarjetas -->
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: principal fuente de CO₂ y N₂O -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-fire"></i></div>
+            <h5 class="card-title">Combustibles fósiles</h5>
+            <p class="card-text">
+              La combustión de carbón, petróleo y gas para transporte y generación de energía
+              libera dióxido de carbono (CO₂) y óxido nitroso (N₂O), los principales
+              gases de efecto invernadero de origen humano.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: eliminación de sumideros naturales de carbono -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-tree"></i></div>
+            <h5 class="card-title">Deforestación</h5>
+            <p class="card-text">
+              Al talar bosques se elimina un sumidero natural de carbono y se libera el CO₂
+              almacenado en la biomasa vegetal, reduciendo la capacidad del planeta para
+              regular el clima.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: N₂O con potencial de calentamiento 273 veces mayor que el CO₂ -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-droplet-half"></i></div>
+            <h5 class="card-title">Fertilizantes nitrogenados</h5>
+            <p class="card-text">
+              Los fertilizantes con nitrógeno liberan óxido nitroso, un gas con un potencial
+              de calentamiento 273 veces mayor que el CO₂ a lo largo de 100 años.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /primera fila de causas -->
+
+
+    <!-- Segunda fila de causas — 3 tarjetas -->
+    <div class="row g-4 mb-5">
+
+      <!-- Tarjeta: gases industriales de altísimo potencial de calentamiento -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-amber">
+          <div class="card-body">
+            <div class="card-icon icon-amber"><i class="bi bi-radioactive"></i></div>
+            <h5 class="card-title">Gases fluorados</h5>
+            <p class="card-text">
+              Procesos industriales emiten gases fluorados (HFC, PFC, SF₆) con potencial
+              de calentamiento miles de veces superior al CO₂, aunque se producen en
+              menores cantidades.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: huella de carbono individual y doméstica -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-green">
+          <div class="card-body">
+            <div class="card-icon icon-green"><i class="bi bi-bag-check"></i></div>
+            <h5 class="card-title">Consumo y estilo de vida</h5>
+            <p class="card-text">
+              El consumo de energía en el hogar, los hábitos de transporte, la dieta y la
+              adquisición de bienes influyen directamente en las emisiones de GEI
+              de cada persona.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: metano de rumiantes, estiércol, arroz y vertederos -->
+      <div class="col-md-4 fade-in-up">
+        <div class="card h-100 card-accent-teal">
+          <div class="card-body">
+            <div class="card-icon icon-teal"><i class="bi bi-egg-fried"></i></div>
+            <h5 class="card-title">Ganadería intensiva</h5>
+            <p class="card-text">
+              La digestión de rumiantes y el estiércol ganadero producen metano (CH₄).
+              El cultivo de arroz y la descomposición en vertederos son fuentes
+              adicionales de este potente gas de efecto invernadero.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /segunda fila de causas -->
+
+
+    <!-- Carrusel de causas en imágenes — carousel-fade con autoplay -->
+    <div class="mb-5">
+      <div class="text-center mb-4">
+        <h2 class="heading-underline">Las causas en imágenes reales</h2>
+      </div>
+
+      <div id="carouselCauses" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <!-- Indicadores de posición -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselCauses" data-bs-slide-to="0"
+            class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselCauses" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselCauses" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+          <!-- Slide 1: Deforestación -->
+          <div class="carousel-item active">
+            <img decoding="async" src="taladearboles.jpg" class="d-block w-100" alt="Tala de árboles">
+            <div class="carousel-caption d-block">
+              <h5>Deforestación y pérdida de sumideros de carbono</h5>
+              <p>La tala ilegal y mal controlada provoca pérdida de hábitat, altera ciclos
+                hidrológicos y degrada el suelo.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Emisiones industriales -->
+          <div class="carousel-item">
+            <img decoding="async" src="fabricas.jpg" class="d-block w-100" alt="Industria y gases fluorados">
+            <div class="carousel-caption d-block">
+              <h5>Procesos industriales y emisiones</h5>
+              <p>Las fábricas emiten gases nocivos al quemar combustibles fósiles para
+                obtener energía.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Contaminación por fertilizantes -->
+          <div class="carousel-item">
+            <img decoding="async" src="fertilizantes.jpg" class="d-block w-100" alt="Uso de fertilizantes">
+            <div class="carousel-caption d-block">
+              <h5>Fertilizantes y contaminación de suelos</h5>
+              <p>El exceso de nitrógeno y fósforo contamina cuerpos de agua y libera
+                potentes gases invernadero.</p>
+            </div>
+          </div>
+
+        </div><!-- /carousel-inner -->
+
+        <!-- Controles anterior / siguiente -->
+        <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselCauses" data-bs-slide="prev">
+          <i class="bi bi-chevron-left text-white fs-5"></i>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselCauses" data-bs-slide="next">
+          <i class="bi bi-chevron-right text-white fs-5"></i>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+
+      </div>
+    </div><!-- /carrusel causas -->
+
+
+    <!-- Call-to-action — enlaza a la página de consecuencias -->
+    <div class="cta-block">
+      <h3 class="mb-3">Comprende las consecuencias</h3>
+      <p class="lead mb-4" style="max-width:500px; margin:0 auto 1.5rem;">
+        Conocer las causas es el primer paso. Descubre cómo estas emisiones están
+        transformando nuestro planeta.
+      </p>
+      <a href="resultados.html" class="btn btn-primary">
+        <i class="bi bi-arrow-right me-2"></i>Ver consecuencias
+      </a>
+    </div>
+
+
+  </main><!-- /main -->
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+      <div class="footer-brand"><i class="bi bi-globe-americas"></i>Cambio Climático</div>
+      <p class="mb-0">Información científica para nuestro planeta</p>
+      <p class="mb-0">© <span id="anio"></span> — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+  <!-- Alternancia de tema claro/oscuro — guarda la preferencia en localStorage -->
+  <audio id="clic-audio" src="click.wav" preload="auto" playsinline></audio>
+  <script src="script.js"></script>
+
+</body>
+</html>
