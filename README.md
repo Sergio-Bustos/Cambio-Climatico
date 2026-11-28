@@ -1,151 +1,131 @@
 <div align="center">
 
-# 🌍 Cambio Climático — Sitio Web Educativo
+<img src="icono.png" width="96" alt="Ícono de Cambio Climático">
 
-<img src="icono.png" width="100" alt="Logo del icono de la página">
-&nbsp;&nbsp;&nbsp;&nbsp;
+# 🌍 Cambio Climático
 
-**Recurso científico y educativo sobre la crisis climática global**
+**Un sitio web para entender, sin tecnicismos, el mayor desafío de nuestra época.**
+Qué es, por qué pasa, qué consecuencias tiene y qué puedes hacer tú.
 
-[![HTML5](https://img.shields.io/badge/HTML5-Semántico-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-Sistema_propio-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-[![Static](https://img.shields.io/badge/Sitio-Estático-4CAF50?style=for-the-badge&logo=githubpages&logoColor=white)]()
-
-> Cubre desde el significado del fenómeno y sus orígenes hasta estudios científicos,  
-> consecuencias ambientales y acciones concretas de mitigación.  
-> Respaldado por **IPCC, NASA, NOAA, UNFCCC y PNUMA**.
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)]()
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)]()
+[![Bootstrap](https://img.shields.io/badge/Bootstrap_5.3-7952B3?style=flat-square&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+[![Sitio estático](https://img.shields.io/badge/Sitio-estático-4CAF50?style=flat-square)]()
+[![Licencia](https://img.shields.io/badge/Uso-educativo-0EA5E9?style=flat-square)]()
 
 </div>
 
 ---
 
-## 📄 Páginas del sitio
+## 🌡️ ¿De qué trata?
 
-| Archivo | Descripción |
-|---------|-------------|
-| `index.html` | Página de inicio con introducción y preguntas frecuentes |
-| `quees.html` | Definición, origen y causas del cambio climático |
-| `discusion.html` | Acuerdos internacionales y movimientos ambientales |
-| `debemoshacer.html` | Acciones individuales y colectivas de mitigación |
-| `resultados.html` | Consecuencias ambientales, sociales y económicas |
-| `metodologia.html` | Métodos científicos de observación y modelos climáticos |
-| `referencias.html` | Fuentes, instituciones y bases de datos científicas |
+El cambio climático suele explicarse con gráficas y palabras difíciles. Este proyecto lo cuenta de otra forma: **en siete páginas claras, con imágenes y datos verificables**, pensadas para estudiantes, familias o cualquier persona curiosa, sin necesidad de ser científico.
+
+Todo el contenido se apoya en fuentes de referencia como **IPCC, NASA, NOAA, UNFCCC y la ONU**.
+
+### La experiencia: las "franjas de calentamiento"
+
+El diseño se inspira en las famosas *warming stripes*: una franja de color por cada año entre 1850 y 2024, que va del azul frío al rojo intenso y muestra de un vistazo cómo se ha ido calentando el planeta. *(Las franjas del sitio son una serie ilustrativa con fines didácticos; para datos oficiales, consulta las fuentes de la página de Referencias.)*
 
 ---
 
-## 🎯 Objetivos del proyecto
+## 🗺️ Qué vas a encontrar
 
-- 🌡️ Comprender qué es el cambio climático, su origen y sus causas
-- 📉 Conocer las consecuencias ambientales, sociales y económicas documentadas
-- 🤝 Explorar qué se ha hecho a nivel internacional para mitigarlo
-- ✅ Identificar acciones concretas que cada persona puede tomar
-- 🔬 Acceder a estudios científicos y fuentes verificadas sobre el tema
-
----
-
-## ⚙️ Tecnologías utilizadas
-
-| Tecnología | Versión | Uso |
-|------------|---------|-----|
-| HTML5 | — | Estructura semántica y accesible |
-| CSS3 | — | Sistema de diseño propio con variables y animaciones |
-| Bootstrap | 5.3 | Layout responsive y componentes interactivos |
-| Bootstrap Icons | 1.11 | Iconografía vectorial consistente |
-| Google Fonts | — | Playfair Display + DM Sans |
-
-> ⚡ El sitio es completamente **estático** — sin dependencias de servidor ni frameworks de JavaScript.
+| Página | Qué responde |
+|---|---|
+| **Inicio** (`index.html`) | Un vistazo general con datos clave (1,1 °C de aumento desde la era preindustrial, 421 ppm de CO₂, 20 cm de nivel del mar en el siglo XX, 97 % de consenso científico), carrusel de impactos y preguntas frecuentes. |
+| **¿Qué es?** (`quees.html`) | Definición, origen y causas. |
+| **¿Qué se ha hecho?** (`discusion.html`) | Acuerdos internacionales y movimientos ambientales. |
+| **¿Qué debemos hacer?** (`debemoshacer.html`) | Acciones individuales y colectivas. |
+| **Consecuencias** (`resultados.html`) | Efectos ambientales, sociales y económicos. |
+| **Metodología** (`metodologia.html`) | Cómo se mide y se modela el clima. |
+| **Referencias** (`referencias.html`) | Fuentes, instituciones y bases de datos para seguir investigando. |
 
 ---
 
-## 🎨 Sistema de diseño
+## ✨ Detalles de diseño
 
-El sitio utiliza un sistema visual propio construido sobre Bootstrap con las siguientes decisiones de diseño:
-
-**Tema**
-- Modo oscuro activado por defecto con toggle persistente para cambiar a modo claro
-- Fondo profundo `#0d1117` para reducir fatiga visual en lectura extensa
-
-**Paleta de colores**
-
-| Rol | Color | Muestra |
-|-----|-------|---------|
-| Fondo principal | `#0d1117` | ⬛ |
-| Acento verde | — | 🟢 |
-| Acento teal | — | 🩵 |
-| Acento ámbar | — | 🟡 |
-
-**Tipografía**
-- **Playfair Display** — títulos editoriales, jerarquía visual fuerte
-- **DM Sans** — cuerpo de texto, alta legibilidad en pantalla
+- 🎨 **Modo claro y oscuro**, con transición circular al cambiar y preferencia recordada.
+- 🌡️ **Franjas de calentamiento** de 1850 a 2024 como identidad visual.
+- 🎬 **Cortina animada** entre páginas y títulos que aparecen palabra por palabra.
+- 🔢 **Contadores animados** en los datos clave y contenido que aparece suavemente al hacer scroll.
+- 📊 **Barra de progreso** de lectura en la parte superior.
+- 🖼️ **Carrusel** de impactos: deshielo, incendios y sequías.
+- ❓ **Preguntas frecuentes** desplegables.
+- 🍔 **Menú a pantalla completa** en celulares.
+- 🔊 **Sonido de clic** opcional, que se puede silenciar con el botón de altavoz.
+- 📱 **Adaptable** a computador, tableta y celular.
+- 🛟 **Contenido siempre visible:** si el JavaScript falla, el texto no se pierde.
 
 ---
 
-## 🔬 Fuentes científicas
+## 🚀 Cómo verlo
 
-El contenido está respaldado por las instituciones de referencia más reconocidas en climatología:
-
-| Institución | Descripción |
-|-------------|-------------|
-| 🌐 **IPCC** | Panel Intergubernamental sobre el Cambio Climático |
-| 🚀 **NASA** | Agencia Espacial de EE.UU. — datos satelitales del clima |
-| 🌊 **NOAA** | Administración Oceánica y Atmosférica de EE.UU. |
-| 🇺🇳 **UNFCCC** | Convención Marco de las Naciones Unidas sobre el Clima |
-| 🌱 **PNUMA** | Programa de las Naciones Unidas para el Medio Ambiente |
-
----
-
-## 🚀 Cómo ejecutarlo localmente
-
-Al ser un sitio estático, no requiere instalación ni servidor:
+Es un sitio estático: no hay que instalar nada.
 
 ```bash
-# 1. Clona el repositorio
 git clone https://github.com/Sergio-Bustos/Cambio-Climatico
-
-# 2. Entra al directorio
-cd cambio-climatico
-
-# 3. Abre index.html en tu navegador
-# Doble clic en index.html
-# O con Live Server en VS Code para recarga automática
+cd Cambio-Climatico
 ```
 
-> 💡 **Recomendado:** extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) de VS Code.
+Abre `index.html` con doble clic, o usa un servidor local (recomendado):
+
+```bash
+python -m http.server 8000
+# luego visita http://localhost:8000
+```
+
+> 💡 En VS Code también funciona la extensión **Live Server**.
+> 🌐 Nota: Bootstrap y Bootstrap Icons se cargan desde una CDN, por lo que la primera vez necesitas conexión a internet.
 
 ---
 
-## 📁 Estructura del proyecto
+## 🛠️ Tecnologías
+
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura semántica de las siete páginas |
+| CSS3 | Sistema de diseño propio dividido en 6 archivos temáticos |
+| JavaScript | Franjas, animaciones, tema, menú y sonido (todo en `script.js`) |
+| Bootstrap 5.3 | Rejilla responsive, carrusel y acordeón |
+| Bootstrap Icons 1.11 | Iconografía |
+| `localStorage` · `IntersectionObserver` · Web Audio | Recordar el tema, animar al hacer scroll y reproducir el clic |
+
+---
+
+## 📁 Estructura
 
 ```
-cambio-climatico/
-│
-├── index.html            # Inicio — introducción y FAQ
-├── quees.html            # ¿Qué es? — definición y causas
-├── discusion.html        # Debate global — acuerdos y movimientos
-├── debemoshacer.html     # Acciones — qué puedes hacer tú
-├── resultados.html       # Consecuencias documentadas
-├── metodologia.html      # Ciencia — métodos y modelos climáticos
-├── referencias.html      # Fuentes y bibliografía científica
-│
-├── styles.css            # Sistema de diseño propio
-└── README.md             # Documentación del proyecto
+Cambio-Climatico/
+├── index.html · quees.html · discusion.html
+├── debemoshacer.html · resultados.html
+├── metodologia.html · referencias.html
+├── script.js                 # Comportamiento e interactividad
+├── styles.css                # Estilos generales
+├── estilos-1-base.css        # Base y variables
+├── estilos-2-menu-botones.css
+├── estilos-3-hero-tarjetas.css
+├── estilos-4-carrusel-bloques.css
+├── estilos-5-footer-animaciones.css
+├── estilos-6-herencia.css
+├── *.jpg · icono.png         # Imágenes
+├── click.wav                 # Sonido de clic
+└── font_*.woff2              # Tipografías incluidas
 ```
 
+---
+
+## 🔬 Fuentes consultadas
+
+Las páginas de **Referencias** reúnen, entre otras: [IPCC](https://www.ipcc.ch/) · [NASA Climate](https://climate.nasa.gov/) · [Climate.gov (NOAA)](https://www.climate.gov/) · [UNFCCC](https://unfccc.int/es) · [ONU – Acción por el clima](https://www.un.org/es/climatechange) · [Met Office Hadley Centre](https://weather.metoffice.gov.uk/climate/met-office-hadley-centre/index) · [Carbon Brief](https://www.carbonbrief.org/) · [World Weather Attribution](https://www.worldweatherattribution.org/).
+
+---
 
 <div align="center">
 
-**"El cambio climático no es un problema del futuro — es el desafío del presente."**
+*"El cambio climático no es un problema del futuro: es el desafío del presente."*
 
-Hecho con 💚 como recurso educativo de acceso libre · 2025
+Hecho con 💚 por **[Sergio Bustos](https://github.com/Sergio-Bustos)** como recurso educativo de acceso libre.
 
 </div>
-
-
----
-
-## 🎨 Diseño "Termómetro"
-
-- La página se **calienta mientras bajas**: aurora, partículas (nieve → brasas) y un termómetro lateral cambian de hielo a fuego con el scroll.
-- Cortina animada entre páginas, títulos palabra por palabra, tarjetas con tilt 3D y foco de luz, contadores animados y transición circular al cambiar de tema.
-- Todo el JavaScript vive en `script.js`; los estilos en `styles.css`. Tipografías: Fraunces + Outfit.
